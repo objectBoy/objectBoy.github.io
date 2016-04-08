@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -57,15 +57,19 @@
 
 
 
-<meta name="description" content="懂产品会PS的程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="赵明路的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="#Android状态栏颜色控制像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。
+##android 沉浸式状态栏(像ios那样的状态栏与应用统一颜色样式)这部分是我偶然间在其他博客看到的这个特性是andorid4.4支持的，最少要api19才可以使用。下面介绍一下使用的方法，非常得简单：12345678910111213pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android状态栏颜色控制">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/Android状态栏颜色控制/index.html">
 <meta property="og:site_name" content="赵明路的博客">
-<meta property="og:description" content="懂产品会PS的程序猿">
+<meta property="og:description" content="#Android状态栏颜色控制像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。
+##android 沉浸式状态栏(像ios那样的状态栏与应用统一颜色样式)这部分是我偶然间在其他博客看到的这个特性是andorid4.4支持的，最少要api19才可以使用。下面介绍一下使用的方法，非常得简单：12345678910111213pu">
+<meta property="og:updated_time" content="2016-04-08T08:22:35.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="赵明路的博客">
-<meta name="twitter:description" content="懂产品会PS的程序猿">
+<meta name="twitter:title" content="Android状态栏颜色控制">
+<meta name="twitter:description" content="#Android状态栏颜色控制像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。
+##android 沉浸式状态栏(像ios那样的状态栏与应用统一颜色样式)这部分是我偶然间在其他博客看到的这个特性是andorid4.4支持的，最少要api19才可以使用。下面介绍一下使用的方法，非常得简单：12345678910111213pu">
 
 
 
@@ -83,7 +87,7 @@
   };
 </script>
 
-  <title> 赵明路的博客 </title>
+  <title> Android状态栏颜色控制 | 赵明路的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,9 +108,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,9 +185,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -205,10 +207,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/04/08/Android状态栏颜色控制/" itemprop="url">
-                  Android状态栏颜色控制
-                </a>
+                Android状态栏颜色控制
               
             
           </h1>
@@ -254,9 +253,7 @@
       
 
       
-        
-          
-            <p>#Android状态栏颜色控制<br>像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。</p>
+        <p>#Android状态栏颜色控制<br>像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。</p>
 <p>##android 沉浸式状态栏(像ios那样的状态栏与应用统一颜色样式)<br><a href="http://blog.csdn.net/jdsjlzx/article/details/46778631" target="_blank" rel="external">这部分是我偶然间在其他博客看到的</a><br>这个特性是andorid4.4支持的，最少要api19才可以使用。下面介绍一下使用的方法，非常得简单：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </span><br><span class="line">        setContentView(R.layout.activity_main);  </span><br><span class="line">          <span class="comment">//透明状态栏    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);  </span></span><br><span class="line">        <span class="comment">//透明导航栏        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);  </span></span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>此时就可以实现沉浸效果了，但是存在一定的问题：<br>状态栏不占用位置了–&gt;若布局头部是TextView的话，此时给text赋值，会发现，text与标题栏的位置，及屏幕左上角。很明显，这并不是我们需要的效果。那么如何更改呢？只需要给布局的头View加入如下属性即可<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:fitsSystemWindows="true"  </span><br><span class="line">android:clipToPadding="true"</span><br></pre></td></tr></table></figure></p>
 <p>在这里解释一下这两个属性的意思：<br><strong>android:clipToPadding</strong> 定义布局间是否有间距<br><strong>android:fitsSystemWindows=”true”</strong>意思就是设置应用布局时是否考虑系统窗口布局；如果为true，将调整系统窗口布局以适应你自定义的布局。比如系统有状态栏，应用也有状态栏时。看你这个布局代码，恰恰是在定义标题栏样式，所以用到这行代码了。</p>
@@ -272,208 +269,57 @@
 <p>相关微博：<a href="http://blog.csdn.net/jdsjlzx/article/details/41643587" target="_blank" rel="external">http://blog.csdn.net/jdsjlzx/article/details/41643587</a></p>
 </blockquote>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/08/开篇，hexo环境搭建/" itemprop="url">
-                  Hexo博客搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-08T15:47:44+08:00" content="2016年04月08日">
-              2016年04月08日
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/08/开篇，hexo环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/开篇，hexo环境搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="Hexo博客搭建"></a>Hexo博客搭建</h1><p>前些日子用hexo搭建了个博客，在此记录下过程，希望能帮助后来者。</p>
-<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
-<li>Github</li>
-<li><a href="http://nodejs.org/download/" target="_blank" rel="external">Node.js</a></li>
-<li>Git</li>
-<li>Hexo</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>建立与你用户名对应的仓库，仓库名必须为your_user_name.github.io，例如我的用户名是objectBoy那么我建立的仓库名就是：objectBoy.github.io</p>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>百度一下下载安装即可</p>
-<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>具体的安装流程我就不细说了，这里有一篇很详细的文章，介绍给大家<a href="http://www.cnblogs.com/LonelyShadow/p/4310100.html" target="_blank" rel="external">http://www.cnblogs.com/LonelyShadow/p/4310100.html</a></p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>Hexo需要在Node.js和git之后安装，执行命令后等待即可</p>
-<pre><code>npm install -g hexo &lt;span &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;hljs-comment&quot;&lt;/span&gt;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// -g指全局安装&lt;/span&gt;&lt;/span&gt;
-`&lt;/pre&gt;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/08/开篇，hexo环境搭建/" rel="next" title="Hexo博客搭建">
+                <i class="fa fa-chevron-left"></i> Hexo博客搭建
+              </a>
+            
+          </div>
 
-&lt;span class=&quot;hljs-preprocessor&quot;&gt;# Hexo&lt;/span&gt;
-</code></pre><ol>
-<li><p>在电脑中建立一个名字叫「Hexo」的文件夹（比如我建在了D:\Hexo），然后在此文件夹中右键打开Git Bash。执行下面的命令</p>
-<p>&lt;pre&gt;<code>&lt;span class=&quot;hljs-title&quot;&gt;hexo&lt;/span&gt; init</code>&lt;/pre&gt;</p>
-<p>等待过后，Hexo会在该目标文件建立所需要文件</p>
-</li>
-<li><p>安装node_modules</p>
-<p>&lt;pre&gt;<code>npm &lt;span class=&quot;hljs-keyword&quot;&gt;install&lt;/span&gt;</code>&lt;/pre&gt;</p>
-</li>
-<li><p>此时已经可以运行下看看效果了</p>
-<p>&lt;pre&gt;<code>hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt;</code>&lt;/pre&gt;</p>
-<p>启动服务后，在浏览器中打开<a href="http://localhost:4000/，这时可以看到Hexo已为你生成了一篇blog_HelloWorld" target="_blank" rel="external">http://localhost:4000/，这时可以看到Hexo已为你生成了一篇blog_HelloWorld</a></p>
-<p>此时的样子是hexo默认的主题，需要更换主题的话，只需要将主题拷贝到theme文件夹中，然后配置_config.yml即可<br>具体的配置方法，请参照<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">官网</a></p>
-</li>
-<li><p>创建新的博文</p>
-<p>&lt;pre&gt;<code>hexo &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;</code>&lt;/pre&gt;</p>
-</li>
-<li><p>生成静态网页</p>
-<p>&lt;pre&gt;<code>hexo &lt;span class=&quot;hljs-keyword&quot;&gt;ge&lt;/span&gt;&lt;span class=&quot;hljs-label&quot;&gt;nerate&lt;/span&gt;</code>&lt;/pre&gt;</p>
-<h1 id="将博客绑定到GitHub"><a href="#将博客绑定到GitHub" class="headerlink" title="将博客绑定到GitHub"></a>将博客绑定到GitHub</h1></li>
-</ol>
-<ul>
-<li><p>配置_config.yml文件</p>
-<p>&lt;pre&gt;`# Deployment</p>
-<h2 id="Docs-http-hexo-io-docs-deployment-html"><a href="#Docs-http-hexo-io-docs-deployment-html" class="headerlink" title="Docs: http://hexo.io/docs/deployment.html"></a><span class="hljs-string">Docs:</span> <span class="hljs-string">http:</span><span class="hljs-comment">//hexo.io/docs/deployment.html</span></h2><p><span class="hljs-string">deploy:</span><br><span class="hljs-string">type:</span><code>&amp;lt;/pre&amp;gt;
-更改为
-&amp;lt;pre&amp;gt;</code># Deployment</p>
-<h2 id="Docs-http-hexo-io-docs-deployment-html-1"><a href="#Docs-http-hexo-io-docs-deployment-html-1" class="headerlink" title="Docs: http://hexo.io/docs/deployment.html"></a><span class="hljs-string">Docs:</span> <span class="hljs-string">http:</span><span class="hljs-comment">//hexo.io/docs/deployment.html</span></h2><p><span class="hljs-string">deploy:</span><br><span class="hljs-string">type:</span> github<br><span class="hljs-string">repository:</span> git<span class="hljs-annotation">@github</span>.<span class="hljs-string">com:</span>xxx/xxx.github.io.git<br><span class="hljs-string">branch:</span> master`&lt;/pre&gt;</p>
-</li>
-<li><p>开始部署</p>
-<p>&lt;pre&gt;<code>&lt;span class=&quot;hljs-variable&quot;&gt;$ &lt;/span&gt;hexo deploy</code>&lt;/pre&gt;</p>
-<p>在这里我遇到了个问题，说Deployer not found: github<br>解决方法为：</p>
-<p>&lt;pre&gt;<code>npm &lt;span class=&quot;hljs-operator&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;install&lt;/span&gt; hexo-deployer-git &lt;span class=&quot;hljs-comment&quot;&gt;--save&lt;/span&gt;&lt;/span&gt;</code>&lt;/pre&gt;</p>
-<p>然后将配置文件里的github -&gt; git</p>
-<p>再次执行部署命令即可。</p>
-<p>部署完成后再浏览器中<a href="http://xxx.github.io/" target="_blank" rel="external">http://xxx.github.io/</a> 查看效果</p>
-<h2 id="每次部署的步骤"><a href="#每次部署的步骤" class="headerlink" title="每次部署的步骤"></a>每次部署的步骤</h2><p>&lt;pre&gt;<code>hexo clean &lt;span class=&quot;hljs-comment&quot;&gt;//清除缓存&lt;/span&gt;
-hexo generate &lt;span class=&quot;hljs-comment&quot;&gt;//生成静态网页&lt;/span&gt;
-hexo deploy &lt;span class=&quot;hljs-comment&quot;&gt;//部署&lt;/span&gt;</code>&lt;/pre&gt;</p>
-<h1 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h1></li>
-</ul>
-<ol>
-<li>在执行下面的命令后，<br>&lt;pre&gt;<code>&lt;span class=&quot;hljs-variable&quot;&gt;$ &lt;/span&gt;hexo g &lt;span class=&quot;hljs-comment&quot;&gt;#生成&lt;/span&gt;
-&lt;span class=&quot;hljs-variable&quot;&gt;$ &lt;/span&gt;hexo s &lt;span class=&quot;hljs-comment&quot;&gt;#启动本地服务，进行文章预览调试&lt;/span&gt;</code>&lt;/pre&gt;<br>浏览器输入<a href="http://localhost:4000，查看搭建效果。此后的每次变更_config.yml" target="_blank" rel="external">http://localhost:4000，查看搭建效果。此后的每次变更_config.yml</a> 文件或者新建文件都可以先用此命令调试，尤其是当你想调试新添加的主题时。</li>
-<li><p>可以用简化的一条命令</p>
-<p>&lt;pre&gt;<code>&lt;span class=&quot;hljs-title&quot;&gt;hexo&lt;/span&gt; s -g</code>&lt;/pre&gt;</p>
-<h1 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>&lt;pre&gt;<code>hexo &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;&quot;postName&quot;&lt;/span&gt; &lt;span class=&quot;hljs-preprocessor&quot;&gt;#新建文章&lt;/span&gt;
-hexo &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; page &lt;span class=&quot;hljs-string&quot;&gt;&quot;pageName&quot;&lt;/span&gt; &lt;span class=&quot;hljs-preprocessor&quot;&gt;#新建页面&lt;/span&gt;
-hexo generate &lt;span class=&quot;hljs-preprocessor&quot;&gt;#生成静态页面至public目录&lt;/span&gt;
-hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;hljs-preprocessor&quot;&gt;#开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）&lt;/span&gt;
-hexo deploy &lt;span class=&quot;hljs-preprocessor&quot;&gt;#将.deploy目录部署到GitHub&lt;/span&gt;
-hexo help  &lt;span class=&quot;hljs-preprocessor&quot;&gt;# 查看帮助&lt;/span&gt;
-hexo version  &lt;span class=&quot;hljs-preprocessor&quot;&gt;#查看Hexo的版本&lt;/span&gt;</code>&lt;/pre&gt;</p>
-<h2 id="复合命令"><a href="#复合命令" class="headerlink" title="复合命令"></a>复合命令</h2><p>&lt;pre&gt;<code>hexo deploy -g  &lt;span class=&quot;hljs-preprocessor&quot;&gt;#生成加部署&lt;/span&gt;
-hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt; -g  &lt;span class=&quot;hljs-preprocessor&quot;&gt;#生成加预览&lt;/span&gt;</code>&lt;/pre&gt;</p>
-<h2 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h2><p>&lt;pre&gt;`hexo &lt;span class=”hljs-variable”&gt;n =&lt;/span&gt;= hexo new<br>hexo &lt;span class=”hljs-variable”&gt;g =&lt;/span&gt;= hexo generate<br>hexo &lt;span class=”hljs-variable”&gt;s =&lt;/span&gt;= hexo server<br>hexo &lt;span class=”hljs-variable”&gt;d =&lt;/span&gt;= hexo deploy</p>
-</li>
-</ol>
-<p>文章参考：<br><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -481,6 +327,14 @@ hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt; -g  &lt;span
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/08/Android状态栏颜色控制/"
+           data-title="Android状态栏颜色控制" data-url="http://yoursite.com/2016/04/08/Android状态栏颜色控制/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -500,8 +354,17 @@ hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt; -g  &lt;span
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/auth_head.png"
@@ -546,6 +409,17 @@ hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt; -g  &lt;span
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -630,6 +504,10 @@ hexo &lt;span class=&quot;hljs-keyword&quot;&gt;server&lt;/span&gt; -g  &lt;span
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
 
   
 
