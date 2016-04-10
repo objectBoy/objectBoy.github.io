@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。">
+<meta name="description" content="懂产品会PS的程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ListView中嵌套HorizontalListView问题">
-<meta property="og:url" content="http://yoursite.com/2016/04/08/ListView中嵌套HorizontalListView问题/index.html">
+<meta property="og:title" content="面试问答">
+<meta property="og:url" content="http://yoursite.com/2016/04/10/面试问答/index.html">
 <meta property="og:site_name" content="赵明路的博客">
-<meta property="og:description" content="在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。">
-<meta property="og:updated_time" content="2016-04-08T08:33:18.000Z">
+<meta property="og:description" content="懂产品会PS的程序猿">
+<meta property="og:updated_time" content="2016-04-10T12:53:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ListView中嵌套HorizontalListView问题">
-<meta name="twitter:description" content="在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。">
+<meta name="twitter:title" content="面试问答">
+<meta name="twitter:description" content="懂产品会PS的程序猿">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> ListView中嵌套HorizontalListView问题 | 赵明路的博客 </title>
+  <title> 面试问答 | 赵明路的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                ListView中嵌套HorizontalListView问题
+                面试问答
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-08T16:32:50+08:00" content="2016年04月08日">
-              2016年04月08日
+            <time itemprop="dateCreated" datetime="2016-04-10T20:53:19+08:00" content="2016年04月10日">
+              2016年04月10日
             </time>
           </span>
 
@@ -237,8 +237,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/08/ListView中嵌套HorizontalListView问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/ListView中嵌套HorizontalListView问题/" itemprop="commentsCount"></span>
+                <a href="/2016/04/10/面试问答/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/面试问答/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -260,13 +260,7 @@
       
 
       
-        <h1 id="ListView中嵌套HorizontalListView问题"><a href="#ListView中嵌套HorizontalListView问题" class="headerlink" title="ListView中嵌套HorizontalListView问题"></a>ListView中嵌套HorizontalListView问题</h1><p>在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。</p>
-<p>##灵感<br><a href="http://blog.csdn.net/qjlhlh/article/details/9299283" target="_blank" rel="external">ListView 添加viewPager为header时，viewPager滑动失去焦点的解决办法</a></p>
-<blockquote>
-<p>viewPager.setOnTouchListener(new OnTouchListener() {<br>      @Override<br>      public boolean onTouch(View v, MotionEvent event) {<br>        PointF downP = new PointF();<br>        PointF curP = new PointF();<br>        int act = event.getAction();<br>        if(act == MotionEvent.ACTION_DOWN || act == MotionEvent.ACTION_MOVE || act == MotionEvent.ACTION_UP){<br>          ((ViewGroup) v).requestDisallowInterceptTouchEvent(true);<br>          if (downP.x == curP.x &amp;&amp; downP.y == curP.y) {<br>            return false;<br>          }<br>        }<br>        return false;<br>      }<br>    });  </p>
-<p>##解决方案<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">listViewPeople.setOnTouchListener(<span class="keyword">new</span> OnTouchListener() &#123;</span><br><span class="line">			<span class="comment">// touch处理</span></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				PointF downP = <span class="keyword">new</span> PointF();</span><br><span class="line">				PointF curP = <span class="keyword">new</span> PointF();</span><br><span class="line">				<span class="keyword">int</span> act = event.getAction();</span><br><span class="line">				<span class="keyword">if</span> (act == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">					downP.y = event.getY();</span><br><span class="line">					downP.x = event.getX();</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (act == MotionEvent.ACTION_MOVE) &#123;</span><br><span class="line">					curP.y = event.getY();</span><br><span class="line">					curP.x = event.getX();</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (curP.x != <span class="number">0</span> || curP.y != <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span> ((Math.abs(curP.y - downP.y)) &lt; (Math.abs(curP.x</span><br><span class="line">							- downP.x))) &#123;</span><br><span class="line">						((HorizontalListView) v)</span><br><span class="line">								.requestDisallowInterceptTouchEvent(<span class="keyword">true</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-
+        
       
     </div>
     
@@ -284,28 +278,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/08/从拍照-相册里选择图片切图/" rel="next" title="从拍照/相册里选择图片切图">
-                <i class="fa fa-chevron-left"></i> 从拍照/相册里选择图片切图
+              <a href="/2016/04/08/Afinal/" rel="next" title="Afinal">
+                <i class="fa fa-chevron-left"></i> Afinal
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/08/radiobutton部分机型不居中问题/" rel="prev" title="radiobutton部分机型不居中问题">
-                radiobutton部分机型不居中问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -331,8 +315,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/08/ListView中嵌套HorizontalListView问题/"
-           data-title="ListView中嵌套HorizontalListView问题" data-url="http://yoursite.com/2016/04/08/ListView中嵌套HorizontalListView问题/">
+      <div class="ds-thread" data-thread-key="2016/04/10/面试问答/"
+           data-title="面试问答" data-url="http://yoursite.com/2016/04/10/面试问答/">
       </div>
     
   </div>
@@ -418,7 +402,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ListView中嵌套HorizontalListView问题"><span class="nav-number">1.</span> <span class="nav-text">ListView中嵌套HorizontalListView问题</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
