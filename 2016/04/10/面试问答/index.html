@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～">
+<meta name="description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～，这里并没有写出最合理的答案，只写了一些思路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试问答">
 <meta property="og:url" content="http://yoursite.com/2016/04/10/面试问答/index.html">
 <meta property="og:site_name" content="赵明路的博客">
-<meta property="og:description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～">
-<meta property="og:updated_time" content="2016-04-11T08:27:09.000Z">
+<meta property="og:description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～，这里并没有写出最合理的答案，只写了一些思路">
+<meta property="og:updated_time" content="2016-04-11T10:34:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试问答">
-<meta name="twitter:description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～">
+<meta name="twitter:description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～，这里并没有写出最合理的答案，只写了一些思路">
 
 
 
@@ -282,16 +282,26 @@
 </ul>
 </li>
 <li>thread  和 thread in service 的区别及优势<ul>
-<li>你没有将android 组件和android C/S架构的概念理解清楚，不仅没有理解清楚，还把组件的概念，跟线程、进程混淆在一起了。<br>我将android比喻成一栋办公大楼，android 中进程就是一个办公室，线程就是办公室里面的员工，办公室是不能干活的，而真正干活的是这个办公室里面的员工。一个员工只能在一个办公室里面干活，而一个办公室可以有很多员工。<br>Android的老板希望它的公司能办理的井井有条，于是针对每一种职能专门设立管理部门，例如WMS，负责窗口管理的，例如MPS，负责多媒体播放的。<br>一个部门可以有一个或多个办公室，一个办公室也可以有多个部门。而android的管理部门往往是不干什么实事的，就像我们的天朝的猿类，你推它一下，它才动一下。所以android需要一些干实事的部门，做对外客户的，这些部门我们统称为apk。Android中有好多这种部门，于是为了防止这些部门瞎干，又把部门分成Activity、Service、BrocastReceiver、ContentProvider四种子部门，这些子部门就是用来跟其它部门做沟通的，而所有的子部门运作时都会由大管家AMS来记录在案。<br>Activity，做门面的。<br>Service，做对外支持的。<br>BrocastReceiver，做门卫收信的。<br>ContentProvider，做仓库管理的。<br>做门面的，可以做对外支持的活，也可以做仓库管理的活。但是外面可不这么认为，它想找你要数据，只会找ContentProvier，找对外支持只会找Service。<br>另外AMS大管家有个不好的习惯，它为了节省公司的资源，AMS那里没有你这个apk任何部门运行记录的时候，它有可能把你的电关了（杀进程）。<br>而LZ你描述的问题呢，就是你的部门想下载东西，是由Activity子部门去干呢，还是Service去干。我的说法，都可以，但是，AMS那个不好的习惯，你没有任何Service运行，而Activity又退到后台了，那就会把你的进程杀了。</li>
+<li>要将android 组件和android C/S架构的概念理解清楚，将android比喻成一栋办公大楼，android 中进程就是一个办公室，线程就是办公室里面的员工，办公室是不能干活的，而真正干活的是这个办公室里面的员工。一个员工只能在一个办公室里面干活，而一个办公室可以有很多员工。<br>Android的老板希望它的公司能办理的井井有条，于是针对每一种职能专门设立管理部门，例如WMS，负责窗口管理的，例如MPS，负责多媒体播放的。<br>一个部门可以有一个或多个办公室，一个办公室也可以有多个部门。而android的管理部门往往是不干什么实事的，就像我们的天朝的猿类，你推它一下，它才动一下。所以android需要一些干实事的部门，做对外客户的，这些部门我们统称为apk。Android中有好多这种部门，于是为了防止这些部门瞎干，又把部门分成Activity、Service、BrocastReceiver、ContentProvider四种子部门，这些子部门就是用来跟其它部门做沟通的，而所有的子部门运作时都会由大管家AMS来记录在案。<br>Activity，做门面的。<br>Service，做对外支持的。<br>BrocastReceiver，做门卫收信的。<br>ContentProvider，做仓库管理的。<br>做门面的，可以做对外支持的活，也可以做仓库管理的活。但是外面可不这么认为，它想找你要数据，只会找ContentProvier，找对外支持只会找Service。<br>另外AMS大管家有个不好的习惯，它为了节省公司的资源，AMS那里没有你这个apk任何部门运行记录的时候，它有可能把你的电关了（杀进程）。<br>而LZ你描述的问题呢，就是你的部门想下载东西，是由Activity子部门去干呢，还是Service去干。我的说法，都可以，但是，AMS那个不好的习惯，你没有任何Service运行，而Activity又退到后台了，那就会把你的进程杀了。</li>
 </ul>
 </li>
-<li><p>Activity 和 service 如何通信</p>
+<li>Activity 和 service 如何通信<ul>
+<li>集成Binder类  －&gt; 要求在同一个进程中，并且可以通过回调的方式，让service主动通知activity变化</li>
+<li>使用Messenger</li>
+<li>使用AIDL</li>
+<li>通过广播：当service发生变化时，发送一条广播，然后由注册该广播的Activity接收</li>
+<li>EventBus</li>
+</ul>
 </li>
 <li><p>多进程</p>
 </li>
-<li><p>不用XUTILS直接用httpclient写网络请求</p>
+<li><p>不用xUtils直接用httpclient写网络请求</p>
 </li>
-<li><p>线程中下载，如何获取下载的东西，THREAD返回的是VOID</p>
+<li><p>线程中下载，如何获取下载的东西，thread返回的是VOID</p>
+<ul>
+<li>一般下载写在Service中，可以通过回调获得下载的result</li>
+<li>定义全局的变量保存result </li>
+</ul>
 </li>
 <li><p>ANDROID动画  animation  animator</p>
 </li>
@@ -310,8 +320,18 @@
 <li><p>源码有没有看过</p>
 </li>
 <li><p>四大组件</p>
+<ul>
+<li>activiyt</li>
+<li>broadcaserecever</li>
+<li>service</li>
+<li>intent </li>
+</ul>
 </li>
 <li><p>service启动模式，区别，</p>
+<ul>
+<li>startService</li>
+<li>bindService</li>
+</ul>
 </li>
 </ul>
 <ul>
