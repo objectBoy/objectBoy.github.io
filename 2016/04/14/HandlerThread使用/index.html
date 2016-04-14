@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -57,15 +57,16 @@
 
 
 
-<meta name="description" content="懂产品会PS的程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="赵明路的博客">
-<meta property="og:url" content="http://yoursite.com/tags/环境/index.html">
+<meta name="description" content="这片文章简要介绍了handlerthread的使用方法和为什么使用handlerthread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HandlerThread使用">
+<meta property="og:url" content="http://yoursite.com/2016/04/14/HandlerThread使用/index.html">
 <meta property="og:site_name" content="赵明路的博客">
-<meta property="og:description" content="懂产品会PS的程序猿">
+<meta property="og:description" content="这片文章简要介绍了handlerthread的使用方法和为什么使用handlerthread">
+<meta property="og:updated_time" content="2016-04-14T08:06:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="赵明路的博客">
-<meta name="twitter:description" content="懂产品会PS的程序猿">
+<meta name="twitter:title" content="HandlerThread使用">
+<meta name="twitter:description" content="这片文章简要介绍了handlerthread的使用方法和为什么使用handlerthread">
 
 
 
@@ -83,7 +84,7 @@
   };
 </script>
 
-  <title> 标签: 环境 | 赵明路的博客 </title>
+  <title> HandlerThread使用 | 赵明路的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -114,7 +115,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -192,46 +193,145 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        环境
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HandlerThread使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-14T15:50:19+08:00" content="2016年04月14日">
+              2016年04月14日
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/14/HandlerThread使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/14/HandlerThread使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="HandlerThread"><a href="#HandlerThread" class="headerlink" title="HandlerThread"></a>HandlerThread</h1><p>在android中，我们为了让多个线程之间能够方便通信，会使用handler实现线程间的通信。在UI线程中实例化handler的是默认包含Looper的。而在子线程中实例化，是不包含的。那么如何在线程中实例化Handler并且保证线程当中包含Looper呢？HandlerThread就是为了简化这个过程。</p>
+<h2 id="为线程创建Looper"><a href="#为线程创建Looper" class="headerlink" title="为线程创建Looper"></a>为线程创建Looper</h2><ol>
+<li>在线程的run()方法中先吊用Looper.prepare()初始化Looper</li>
+<li>在run()方法的最后吊用Looper.loop(),Looper.loop()方法默认是死循环</li>
+</ol>
+<h2 id="HandlerLooper"><a href="#HandlerLooper" class="headerlink" title="HandlerLooper"></a>HandlerLooper</h2><ol>
+<li><p>实例化HandlerThread：创建一个包含Looper的线程</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HandlerThread ht = <span class="keyword">new</span> HandlerThread(<span class="string">"test.com"</span>);</span><br><span class="line">handlerThread.start();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取HandlerThread的Looper</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Looper looper = ht.getLooper();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>通过Looper创建Handler</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Handler handler = <span class="keyword">new</span> Handler(looper);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>退出线程</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ht.quit();</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-      <h1 class="post-title">
+      
+    </div>
+    
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/04/08/开篇，hexo环境搭建/" itemprop="url">
-              
-                <span itemprop="name">Hexo博客搭建</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-08T15:47:44+08:00"
-              content="2016年04月08日" >
-          04-08
-        </time>
-      </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
 
-    </header>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/10/面试问答/" rel="next" title="面试问答">
+                <i class="fa fa-chevron-left"></i> 面试问答
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -239,6 +339,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/14/HandlerThread使用/"
+           data-title="HandlerThread使用" data-url="http://yoursite.com/2016/04/14/HandlerThread使用/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -258,8 +366,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/auth_head.png"
@@ -333,6 +450,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HandlerThread"><span class="nav-number">1.</span> <span class="nav-text">HandlerThread</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为线程创建Looper"><span class="nav-number">1.1.</span> <span class="nav-text">为线程创建Looper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HandlerLooper"><span class="nav-number">1.2.</span> <span class="nav-text">HandlerLooper</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -417,6 +545,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
 
   
 
