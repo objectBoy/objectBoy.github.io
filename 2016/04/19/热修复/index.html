@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="最近换了Mac电脑，用着还蛮习惯的。整理下Mac下常用的命令">
+<meta name="description" content="当一个App发布之后，突然发现了一个严重bug需要进行紧急修复，这时候公司各方就会忙得焦头烂额：重新打包App、测试、向各个应用市场和渠道换包、提示用户升级、用户下载、覆盖安装。有时候仅仅是为了修改了一行代码，也要付出巨大的成本进行换包和重新发布。 这时候就提出一个问题：有没有办法以补丁的方式动态修复紧急Bug，不再需要重新发布App，不再需要用户重新下载，覆盖安装？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac常用命令">
-<meta property="og:url" content="http://yoursite.com/2016/04/15/Mac常用命令/index.html">
+<meta property="og:title" content="热修复">
+<meta property="og:url" content="http://yoursite.com/2016/04/19/热修复/index.html">
 <meta property="og:site_name" content="CORNER">
-<meta property="og:description" content="最近换了Mac电脑，用着还蛮习惯的。整理下Mac下常用的命令">
-<meta property="og:updated_time" content="2016-04-15T07:12:50.000Z">
+<meta property="og:description" content="当一个App发布之后，突然发现了一个严重bug需要进行紧急修复，这时候公司各方就会忙得焦头烂额：重新打包App、测试、向各个应用市场和渠道换包、提示用户升级、用户下载、覆盖安装。有时候仅仅是为了修改了一行代码，也要付出巨大的成本进行换包和重新发布。 这时候就提出一个问题：有没有办法以补丁的方式动态修复紧急Bug，不再需要重新发布App，不再需要用户重新下载，覆盖安装？">
+<meta property="og:updated_time" content="2016-04-19T08:28:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac常用命令">
-<meta name="twitter:description" content="最近换了Mac电脑，用着还蛮习惯的。整理下Mac下常用的命令">
+<meta name="twitter:title" content="热修复">
+<meta name="twitter:description" content="当一个App发布之后，突然发现了一个严重bug需要进行紧急修复，这时候公司各方就会忙得焦头烂额：重新打包App、测试、向各个应用市场和渠道换包、提示用户升级、用户下载、覆盖安装。有时候仅仅是为了修改了一行代码，也要付出巨大的成本进行换包和重新发布。 这时候就提出一个问题：有没有办法以补丁的方式动态修复紧急Bug，不再需要重新发布App，不再需要用户重新下载，覆盖安装？">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> Mac常用命令 | CORNER </title>
+  <title> 热修复 | CORNER </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                Mac常用命令
+                热修复
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-15T15:01:17+08:00" content="2016年04月15日">
-              2016年04月15日
+            <time itemprop="dateCreated" datetime="2016-04-19T10:31:36+08:00" content="2016年04月19日">
+              2016年04月19日
             </time>
           </span>
 
@@ -237,8 +237,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/15/Mac常用命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/15/Mac常用命令/" itemprop="commentsCount"></span>
+                <a href="/2016/04/19/热修复/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/热修复/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -260,100 +260,7 @@
       
 
       
-        <table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>defaults write com.apple.finder AppleShowAllFiles -bool true/false</td>
-<td>显示/隐藏Mac下的隐藏文件</td>
-</tr>
-<tr>
-<td>sudo -s</td>
-<td>获取权限</td>
-</tr>
-<tr>
-<td>ls</td>
-<td>列出文件</td>
-</tr>
-<tr>
-<td>cd</td>
-<td>转换目录</td>
-</tr>
-<tr>
-<td>mkdir</td>
-<td>新建目录</td>
-</tr>
-<tr>
-<td>cp</td>
-<td>拷贝文件</td>
-</tr>
-<tr>
-<td>rm</td>
-<td>删除文件</td>
-</tr>
-<tr>
-<td>mv</td>
-<td>移动文件</td>
-</tr>
-<tr>
-<td>chmod</td>
-<td>更改文件权限</td>
-</tr>
-<tr>
-<td>chown</td>
-<td>更改文件属性</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command+k</td>
-<td>清屏</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>目录</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/Volumes</td>
-<td>桌面上看到的硬盘都挂在此</td>
-</tr>
-<tr>
-<td>/</td>
-<td>根目录</td>
-</tr>
-<tr>
-<td>/System/Library/Extensions</td>
-<td>驱动</td>
-</tr>
-<tr>
-<td>/User/用户名</td>
-<td>用户文件夹</td>
-</tr>
-<tr>
-<td>/User/用户名/Desktop</td>
-<td>桌面</td>
-</tr>
-</tbody>
-</table>
+        <p>#Android热修复<br>Github上开源的热修复框架：<a href="https://github.com/dodola/HotFix" target="_blank" rel="external">HotFix</a>、<br><a href="https://github.com/jasonross/Nuwa" target="_blank" rel="external">Nuwa</a>、<br><a href="https://github.com/bunnyblue/DroidFix" target="_blank" rel="external">DroidFix</a></p>
 
       
     </div>
@@ -374,7 +281,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mac/" rel="tag">#Mac</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -383,17 +290,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/14/HandlerThread使用/" rel="next" title="HandlerThread使用">
-                <i class="fa fa-chevron-left"></i> HandlerThread使用
+              <a href="/2016/04/18/Android性能优化/" rel="next" title="Android性能优化">
+                <i class="fa fa-chevron-left"></i> Android性能优化
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/18/Android性能优化/" rel="prev" title="Android性能优化">
-                Android性能优化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -419,8 +322,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/15/Mac常用命令/"
-           data-title="Mac常用命令" data-url="http://yoursite.com/2016/04/15/Mac常用命令/">
+      <div class="ds-thread" data-thread-key="2016/04/19/热修复/"
+           data-title="热修复" data-url="http://yoursite.com/2016/04/19/热修复/">
       </div>
     
   </div>
