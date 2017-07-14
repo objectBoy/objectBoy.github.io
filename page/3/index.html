@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,41 +32,15 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
@@ -103,8 +77,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -115,15 +89,13 @@
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      hits: "",
+      labels: ""
     }
   };
 </script>
 
 
-
-  <link rel="canonical" href="http://yoursite.com/page/3/"/>
 
 
 
@@ -293,16 +265,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-08T16:33:41+08:00">
-                2016年04月08日
-              </time>
-            
 
             
 
@@ -333,6 +295,10 @@
           
 
           
+              <div class="post-description">
+                  关于radiobutton部分机型不居中问题
+              </div>
+          
 
         </div>
       </header>
@@ -346,14 +312,10 @@
 
       
         
-          关于radiobutton部分机型不居中问题
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/08/radiobutton部分机型不居中问题/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>#关于radiobutton部分机型不居中问题<br>android:paddingLeft=”0dp”<br>android:background=”@color/transparent”<br>设置这两个属性中的任意一个即可</p>
+
+          
         
       
     </div>
@@ -428,16 +390,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-08T16:32:50+08:00">
-                2016年04月08日
-              </time>
-            
 
             
 
@@ -468,6 +420,10 @@
           
 
           
+              <div class="post-description">
+                  在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。
+              </div>
+          
 
         </div>
       </header>
@@ -481,14 +437,15 @@
 
       
         
-          在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/08/ListView中嵌套HorizontalListView问题/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="ListView中嵌套HorizontalListView问题"><a href="#ListView中嵌套HorizontalListView问题" class="headerlink" title="ListView中嵌套HorizontalListView问题"></a>ListView中嵌套HorizontalListView问题</h1><p>在垂直排列的listView中嵌套水平排列的HorizontalListView会产生焦点问题，导致水平滑动不灵敏。</p>
+<p>##灵感<br><a href="http://blog.csdn.net/qjlhlh/article/details/9299283" target="_blank" rel="external">ListView 添加viewPager为header时，viewPager滑动失去焦点的解决办法</a></p>
+<blockquote>
+<p>viewPager.setOnTouchListener(new OnTouchListener() {<br>      @Override<br>      public boolean onTouch(View v, MotionEvent event) {<br>        PointF downP = new PointF();<br>        PointF curP = new PointF();<br>        int act = event.getAction();<br>        if(act == MotionEvent.ACTION_DOWN || act == MotionEvent.ACTION_MOVE || act == MotionEvent.ACTION_UP){<br>          ((ViewGroup) v).requestDisallowInterceptTouchEvent(true);<br>          if (downP.x == curP.x &amp;&amp; downP.y == curP.y) {<br>            return false;<br>          }<br>        }<br>        return false;<br>      }<br>    });  </p>
+<p>##解决方案<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">listViewPeople.setOnTouchListener(<span class="keyword">new</span> OnTouchListener() &#123;</span><br><span class="line">			<span class="comment">// touch处理</span></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				PointF downP = <span class="keyword">new</span> PointF();</span><br><span class="line">				PointF curP = <span class="keyword">new</span> PointF();</span><br><span class="line">				<span class="keyword">int</span> act = event.getAction();</span><br><span class="line">				<span class="keyword">if</span> (act == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">					downP.y = event.getY();</span><br><span class="line">					downP.x = event.getX();</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (act == MotionEvent.ACTION_MOVE) &#123;</span><br><span class="line">					curP.y = event.getY();</span><br><span class="line">					curP.x = event.getX();</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (curP.x != <span class="number">0</span> || curP.y != <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span> ((Math.abs(curP.y - downP.y)) &lt; (Math.abs(curP.x</span><br><span class="line">							- downP.x))) &#123;</span><br><span class="line">						((HorizontalListView) v)</span><br><span class="line">								.requestDisallowInterceptTouchEvent(<span class="keyword">true</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+          
         
       
     </div>
@@ -563,16 +520,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-08T16:31:14+08:00">
-                2016年04月08日
-              </time>
-            
 
             
 
@@ -603,6 +550,10 @@
           
 
           
+              <div class="post-description">
+                  ACTION_GET_CONTENT允许用户选择特殊种类的数据，并返回（特殊种类的数据：照一张相片或录一段音）
+              </div>
+          
 
         </div>
       </header>
@@ -616,14 +567,14 @@
 
       
         
-          ACTION_GET_CONTENT允许用户选择特殊种类的数据，并返回（特殊种类的数据：照一张相片或录一段音）
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/08/从拍照-相册里选择图片切图/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>#ACTION_GET_CONTENT<br>允许用户选择特殊种类的数据，并返回（特殊种类的数据：照一张相片或录一段音）</p>
+<p>##从相册选择图片并剪切<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Intent <span class="title">takeAlbum</span><span class="params">(Uri imageUri, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 调用选择相册裁剪功能</span></span><br><span class="line"><span class="comment">//		Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);//部分机型不支持</span></span><br><span class="line">		Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_PICK, <span class="keyword">null</span>);</span><br><span class="line">		intent.setType(<span class="string">"image/*"</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"crop"</span>, <span class="string">"true"</span>);</span><br><span class="line">		<span class="keyword">double</span> w = x;</span><br><span class="line">		<span class="keyword">double</span> h = y;</span><br><span class="line">		intent.putExtra(<span class="string">"aspectX"</span>, (<span class="keyword">int</span>) Math.rint((w / h))); <span class="comment">// 设置长和宽的比例</span></span><br><span class="line"><span class="comment">//		intent.putExtra("aspectX", 1); </span></span><br><span class="line">		intent.putExtra(<span class="string">"aspectY"</span>, <span class="number">1</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"outputX"</span>, x); <span class="comment">// 设置输出的长</span></span><br><span class="line">		intent.putExtra(<span class="string">"outputY"</span>, y); <span class="comment">// 设置输出的宽</span></span><br><span class="line">		intent.putExtra(<span class="string">"scale"</span>, <span class="keyword">true</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"scaleUpIfNeeded"</span>, <span class="keyword">true</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"return-data"</span>, <span class="keyword">false</span>);</span><br><span class="line">		<span class="comment">// 设置是否在给定的Uri 中获取图片</span></span><br><span class="line">		<span class="comment">// ture: 在给定的URL中获取图片 false: 相反</span></span><br><span class="line">		intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);</span><br><span class="line">		intent.putExtra(<span class="string">"outputFormat"</span>, Bitmap.CompressFormat.JPEG.toString()); <span class="comment">// 设置输出格式</span></span><br><span class="line">		<span class="keyword">return</span> intent;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##拍照并裁剪<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Intent <span class="title">cropBytakeP</span><span class="params">(Uri uri, <span class="keyword">int</span> outputX, <span class="keyword">int</span> outputY)</span> </span>&#123;</span><br><span class="line">		Intent intent = <span class="keyword">new</span> Intent(<span class="string">"com.android.camera.action.CROP"</span>);</span><br><span class="line">		intent.setDataAndType(uri, <span class="string">"image/*"</span>);</span><br><span class="line">		<span class="keyword">double</span> w = outputX;</span><br><span class="line">		<span class="keyword">double</span> h = outputY;</span><br><span class="line">		intent.putExtra(<span class="string">"crop"</span>, <span class="string">"true"</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"aspectX"</span>, (<span class="keyword">int</span>) Math.rint((w / h))); <span class="comment">// 设置长和宽的比例</span></span><br><span class="line">		intent.putExtra(<span class="string">"aspectY"</span>, <span class="number">1</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"outputX"</span>, outputX); <span class="comment">// 设置输出的长</span></span><br><span class="line">		intent.putExtra(<span class="string">"outputY"</span>, outputY); <span class="comment">// 设置输出的宽</span></span><br><span class="line">		intent.putExtra(<span class="string">"scale"</span>, <span class="keyword">true</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"scaleUpIfNeeded"</span>, <span class="keyword">true</span>);</span><br><span class="line">		intent.putExtra(<span class="string">"return-data"</span>, <span class="keyword">false</span>);</span><br><span class="line">	  <span class="comment">//intent.putExtra("return-data", true);则可以得到返回的Bitmap数据</span></span><br><span class="line">		<span class="comment">// 设置是否在给定的Uri 中获取图片</span></span><br><span class="line">		<span class="comment">// ture: 在给定的URL中获取图片 false: 相反</span></span><br><span class="line">		intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);</span><br><span class="line">		intent.putExtra(<span class="string">"outputFormat"</span>, Bitmap.CompressFormat.JPEG.toString());<span class="comment">// 设置输出格式</span></span><br><span class="line">		<span class="keyword">return</span> intent;</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>##通用方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startActivityForResult(intent, PHOTO_PICKED);</span><br></pre></td></tr></table></figure></p>
+<p>##回调方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">        String action = data.getAction();</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">final</span> Bundle extras = data.getExtras();</span><br><span class="line">        Bitmap bitmap = extras.getParcelable(<span class="string">"data"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -698,16 +649,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-08T16:29:40+08:00">
-                2016年04月08日
-              </time>
-            
 
             
 
@@ -738,6 +679,10 @@
           
 
           
+              <div class="post-description">
+                  状态栏高度定义在Android系统尺寸资源中status_bar_height，系统给我们提供了一个Resource类，通过这个类我们可以获取资源文件
+              </div>
+          
 
         </div>
       </header>
@@ -751,14 +696,13 @@
 
       
         
-          状态栏高度定义在Android系统尺寸资源中status_bar_height，系统给我们提供了一个Resource类，通过这个类我们可以获取资源文件
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/08/获取Android系统状态栏的高度/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>#获取Android系统状态栏的高度</p>
+<p>##方法一<br>状态栏高度定义在Android系统尺寸资源中status_bar_height，系统给我们提供了一个Resource类，通过这个类我们可以获取资源文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStatusBarHeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//需要在Activity中执行</span></span><br><span class="line">  <span class="keyword">int</span> height = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> resourceId = getResources().getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</span><br><span class="line">  <span class="keyword">if</span> (resourceId &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      height = getResources().getDimensionPixelSize(resourceId);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> height ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##方法二<br>因为Android的所有资源都会有惟一标识在R类中作为引用。我们也可以通过反射获取R类的实例域<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getStatusHeight</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> statusHeight = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Class clazz = Class.forName(<span class="string">"com.android.internal.R$dimen"</span>);</span><br><span class="line">        Object object = clazz.newInstance();</span><br><span class="line">        <span class="keyword">int</span> height = Integer.parseInt(clazz.getField(<span class="string">"status_bar_height"</span>)</span><br><span class="line">                .get(object).toString());</span><br><span class="line">        statusHeight = context.getResources().getDimensionPixelSize(height);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> statusHeight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##方法三<br>依赖于WMS（窗口管理服务）的回调<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rect rectangle= <span class="keyword">new</span> Rect();</span><br><span class="line">Window window= getWindow();</span><br><span class="line">window.getDecorView().getWindowVisibleDisplayFrame(rectangle);</span><br><span class="line"><span class="keyword">int</span> statusBarHeight= rectangle.top;</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -833,16 +777,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-08T16:22:13+08:00">
-                2016年04月08日
-              </time>
-            
 
             
 
@@ -873,6 +807,10 @@
           
 
           
+              <div class="post-description">
+                  像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。
+              </div>
+          
 
         </div>
       </header>
@@ -886,14 +824,24 @@
 
       
         
-          像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/08/Android状态栏颜色控制/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>#Android状态栏颜色控制<br>像qq之类的应用，在使用时，系统状态栏的颜色也随着activity的头部颜色变动，使得整个屏幕的style看起来是一致的。</p>
+<p>##android 沉浸式状态栏(像ios那样的状态栏与应用统一颜色样式)<br><a href="http://blog.csdn.net/jdsjlzx/article/details/46778631" target="_blank" rel="external">这部分是我偶然间在其他博客看到的</a><br>这个特性是andorid4.4支持的，最少要api19才可以使用。下面介绍一下使用的方法，非常得简单：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </span><br><span class="line">        setContentView(R.layout.activity_main);  </span><br><span class="line">          <span class="comment">//透明状态栏    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);  </span></span><br><span class="line">        <span class="comment">//透明导航栏        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);  </span></span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时就可以实现沉浸效果了，但是存在一定的问题：<br>状态栏不占用位置了–&gt;若布局头部是TextView的话，此时给text赋值，会发现，text与标题栏的位置，及屏幕左上角。很明显，这并不是我们需要的效果。那么如何更改呢？只需要给布局的头View加入如下属性即可<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:fitsSystemWindows="true"  </span><br><span class="line">android:clipToPadding="true"</span><br></pre></td></tr></table></figure></p>
+<p>在这里解释一下这两个属性的意思：<br><strong>android:clipToPadding</strong> 定义布局间是否有间距<br><strong>android:fitsSystemWindows=”true”</strong>意思就是设置应用布局时是否考虑系统窗口布局；如果为true，将调整系统窗口布局以适应你自定义的布局。比如系统有状态栏，应用也有状态栏时。看你这个布局代码，恰恰是在定义标题栏样式，所以用到这行代码了。</p>
+<p>##SystemBarTintManager<br>github <a href="https://github.com/hexiaochun/SystemBarTint" target="_blank" rel="external">https://github.com/hexiaochun/SystemBarTint</a><br><a href="http://download.csdn.net/detail/zifeng1203s/9297009" target="_blank" rel="external">下载地址</a><br>可以自由控制状态栏的各种效果</p>
+<p>###使用方法</p>
+<ol>
+<li>下载SystemBarTintManager</li>
+<li>解压，并将解压出的library导入项目中</li>
+<li>在oncreat中调用initSystemBar方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initSystemBar</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">setTranslucentStatus(activity, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line">SystemBarTintManager tintManager = <span class="keyword">new</span> SystemBarTintManager(activity);</span><br><span class="line">tintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">// 使用颜色资源-</span></span><br><span class="line">tintManager.setStatusBarTintResource(R.color.status_color);</span><br><span class="line"><span class="comment">//tintManager.setStatusBarAlpha(0.0f);</span></span><br><span class="line"><span class="comment">//还有很多其他方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@TargetApi</span>(<span class="number">19</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTranslucentStatus</span><span class="params">(Activity activity, <span class="keyword">boolean</span> on)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">Window win = activity.getWindow();</span><br><span class="line"></span><br><span class="line">WindowManager.LayoutParams winParams = win.getAttributes();</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (on) &#123;</span><br><span class="line"></span><br><span class="line">winParams.flags |= bits;</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">winParams.flags &amp;= ~bits;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">win.setAttributes(winParams);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>相关微博：<a href="http://blog.csdn.net/jdsjlzx/article/details/41643587" target="_blank" rel="external">http://blog.csdn.net/jdsjlzx/article/details/41643587</a></p>
+</blockquote>
+
+          
         
       
     </div>
@@ -968,16 +916,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-08T15:47:44+08:00">
-                2016年04月08日
-              </time>
-            
 
             
 
@@ -1008,6 +946,10 @@
           
 
           
+              <div class="post-description">
+                  前些日子用hexo搭建了个博客，在此记录下过程，希望能帮助后来者。
+              </div>
+          
 
         </div>
       </header>
@@ -1021,14 +963,79 @@
 
       
         
-          前些日子用hexo搭建了个博客，在此记录下过程，希望能帮助后来者。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/08/开篇，hexo环境搭建/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="Hexo博客搭建"></a>Hexo博客搭建</h1><p>前些日子用hexo搭建了个博客，在此记录下过程，希望能帮助后来者。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
+<li>Github</li>
+<li><a href="http://nodejs.org/download/" target="_blank" rel="external">Node.js</a></li>
+<li>Git</li>
+<li>Hexo</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>建立与你用户名对应的仓库，仓库名必须为your_user_name.github.io，例如我的用户名是objectBoy那么我建立的仓库名就是：objectBoy.github.io</p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>百度一下下载安装即可</p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>具体的安装流程我就不细说了，这里有一篇很详细的文章，介绍给大家<a href="http://www.cnblogs.com/LonelyShadow/p/4310100.html" target="_blank" rel="external">http://www.cnblogs.com/LonelyShadow/p/4310100.html</a></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>Hexo需要在Node.js和git之后安装，执行命令后等待即可<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo <span class="comment">// -g指全局安装</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>在电脑中建立一个名字叫「Hexo」的文件夹（比如我建在了D:\Hexo），然后在此文件夹中右键打开Git Bash。执行下面的命令</p>
+<p><code>hexo init</code></p>
+<p>等待过后，Hexo会在该目标文件建立所需要文件</p>
+</li>
+<li><p>安装node_modules</p>
+<p> <code>npm install</code></p>
+</li>
+<li><p>此时已经可以运行下看看效果了</p>
+<p> <code>hexo server</code>;</p>
+<p> 启动服务后，在浏览器中打开<a href="http://localhost:4000/，这时可以看到Hexo已为你生成了一篇blog_HelloWorld" target="_blank" rel="external">http://localhost:4000/，这时可以看到Hexo已为你生成了一篇blog_HelloWorld</a></p>
+<p> 此时的样子是hexo默认的主题，需要更换主题的话，只需要将主题拷贝到theme文件夹中，然后配置_config.yml即可<br> 具体的配置方法，请参照<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">官网</a></p>
+</li>
+<li><p>创建新的博文</p>
+<p> <code>hexo new &quot;My New Post&quot;</code></p>
+</li>
+<li><p>生成静态网页</p>
+<p> <code>hexo generate</code></p>
+<h1 id="将博客绑定到GitHub"><a href="#将博客绑定到GitHub" class="headerlink" title="将博客绑定到GitHub"></a>将博客绑定到GitHub</h1></li>
+</ol>
+<ul>
+<li><p>配置_config.yml文件</p>
+<p><code>Deployment
+Docs:http://hexo.io/docs/deployment.html
+deploy:
+type:</code><br>更改为<br><code>Deployment
+Docs:http://hexo.io/docs/deployment.html
+deploy:
+type: github
+repository: git@github.com:xxx/xxx.github.io.git
+branch: master</code></p>
+</li>
+<li><p>开始部署</p>
+<p>  <code>$ hexo deploy</code></p>
+<p>  在这里我遇到了个问题，说Deployer not found: github<br>  解决方法为：</p>
+<p>  <code>npm install hexo-deployer-git --save</code><br>  然后将配置文件里的github -&gt; git</p>
+<p>  再次执行部署命令即可。</p>
+<p>  部署完成后再浏览器中<a href="http://xxx.github.io/" target="_blank" rel="external">http://xxx.github.io/</a> 查看效果</p>
+<h2 id="每次部署的步骤"><a href="#每次部署的步骤" class="headerlink" title="每次部署的步骤"></a>每次部署的步骤</h2><p>  <code>hexo clean //清除缓存
+  hexo generate //生成静态网页
+  hexo deploy //部署</code></p>
+<h1 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h1></li>
+</ul>
+<ol>
+<li>在执行下面的命令后，<br><code>$ hexo g #生成
+$ hexo s #启动本地服务，进行文章预览调试&lt;/span&gt;</code></li>
+</ol>
+<p>浏览器输入<a href="http://localhost:4000，查看搭建效果。此后的每次变更_config.yml" target="_blank" rel="external">http://localhost:4000，查看搭建效果。此后的每次变更_config.yml</a> 文件或者新建文件都可以先用此命令调试，尤其是当你想调试新添加的主题时。</p>
+<ol>
+<li><p>可以用简化的一条命令</p>
+<p><code>hexo s -g</code></p>
+<h1 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line"></span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line"></span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line"></span><br><span class="line">hexo help # 查看帮助</span><br><span class="line"></span><br><span class="line">hexo version #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+<h2 id="复合命令"><a href="#复合命令" class="headerlink" title="复合命令"></a>复合命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g  #生成加部署</span><br><span class="line"></span><br><span class="line">hexo server -g  #生成加预览</span><br></pre></td></tr></table></figure>
+<h2 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line"></span><br><span class="line">hexo g == hexo generate</span><br><span class="line"></span><br><span class="line">hexo s == hexo server</span><br><span class="line"></span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>文章参考：<br><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a></p>
+
+          
         
       
     </div>
@@ -1144,6 +1151,35 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/objectBoy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zifeng1203s" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-code"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/uploads/RESUME.doc" target="_blank" title="RESUME">
+                  
+                    <i class="fa fa-fw fa-file-word-o"></i>
+                  
+                  RESUME
+                </a>
+              </span>
+            
+          
         </div>
 
         
@@ -1173,25 +1209,14 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">赵明路</span>
 </div>
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
 
 
         
@@ -1233,22 +1258,22 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1294,7 +1319,7 @@
   
     
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 

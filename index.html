@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,41 +32,15 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
@@ -103,8 +77,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -115,15 +89,13 @@
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      hits: "",
+      labels: ""
     }
   };
 </script>
 
 
-
-  <link rel="canonical" href="http://yoursite.com/"/>
 
 
 
@@ -293,16 +265,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T03:54:05+08:00">
-                2017年07月05日
-              </time>
-            
 
             
 
@@ -333,6 +295,10 @@
           
 
           
+              <div class="post-description">
+                  最近一直在用七牛云作为外链，发一些游记图片。可是图片多了，一个个的去复制外链却也麻烦，所以去看了下七牛的api，写了一个批量导出外链的脚本
+              </div>
+          
 
         </div>
       </header>
@@ -346,14 +312,34 @@
 
       
         
-          最近一直在用七牛云作为外链，发一些游记图片。可是图片多了，一个个的去复制外链却也麻烦，所以去看了下七牛的api，写了一个批量导出外链的脚本
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/05/七牛云外链批量导出/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="七牛云外链批量导出"><a href="#七牛云外链批量导出" class="headerlink" title="七牛云外链批量导出"></a>七牛云外链批量导出</h1><p>最近一直在用七牛云作为外链，发一些游记图片。可是图片多了，一个个的去复制外链却也麻烦，所以去看了下七牛的api，写了一个批量导出外链的脚本，下次再写游记导出图片就不是骑牛啦，得开车了，快上车吧~</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><p><a href="https://github.com/qiniu/qshell?ref=developer.qiniu.com" target="_blank" rel="external">下载qshell</a></p>
+<blockquote>
+<p>qshell 是利用<a href="http://developer.qiniu.com/" target="_blank" rel="external">七牛文档上公开的 API </a>实现的一个方便开发者测试和使用七牛API服务的命令行工具。该工具设计和开发的主要目的就是帮助开发者快速解决问题。</p>
+</blockquote>
+</li>
+<li><p>安装</p>
+<p>若不熟悉go语言，请下载对应平台的二进制文件，放到刚才下载的zip解压文件夹中即可</p>
+</li>
+<li><p>设置环境变量</p>
+</li>
+</ul>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><ul>
+<li><code>qshell account &lt;ak&gt; &lt;sk&gt;</code></li>
+<li>设置完毕后，即可以通过相应命令，上传和获取外链表，具体的，请参考<a href="https://github.com/qiniu/qshell?ref=developer.qiniu.com" target="_blank" rel="external">官方文档</a>此处不再赘述</li>
+</ul>
+<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><ul>
+<li>主要用到如下方法<ul>
+<li><code>qshell listbucket</code></li>
+</ul>
+</li>
+<li><a href="http://objectboy.github.io/uploads/qiniuyun.sh" target="_blank" rel="external">脚本地址</a></li>
+<li><code>sh qiniuyun.sh &lt;bucketName&gt; &lt;newDomainName&gt;</code></li>
+</ul>
+
+          
         
       
     </div>
@@ -428,16 +414,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T00:51:15+08:00">
-                2017年07月05日
-              </time>
-            
 
             
 
@@ -468,6 +444,10 @@
           
 
           
+              <div class="post-description">
+                  <div><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3704.PNG"/>这是四月份的照片了，翻手机的时候看到了，便整理下。</div>
+              </div>
+          
 
         </div>
       </header>
@@ -481,14 +461,60 @@
 
       
         
-          <div><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3704.PNG"/>这是四月份的照片了，翻手机的时候看到了，便整理下。</div>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/05/玉渊潭公园春读/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="玉渊潭公园·春读"><a href="#玉渊潭公园·春读" class="headerlink" title="玉渊潭公园·春读"></a>玉渊潭公园·春读</h1><p>翻手机，这是很久之前的照片了。就不啰嗦回忆了，直接上图吧😆</p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3671.JPG" alt=""></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_0232.JPG" alt=""></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3670.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3669.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_6439.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_1652.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3138.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_1756.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3718.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3710.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_5605.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3716.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3711.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3713.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3717.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_6963.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3714.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3712.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3668.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3721.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3722.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3720.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3694.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_2433.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3685.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_5200.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3684.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3672.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3724.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_8147.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3704.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3723.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3709.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3709.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3707.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3698.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3715.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3700.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3701.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3702.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3705.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3703.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3699.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3697.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3708.PNG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_8279.JPG" alt="玉渊潭公园"></p>
+<p><img src="http://oskr4xlx1.bkt.clouddn.com/IMG_3706.PNG" alt="玉渊潭公园"></p>
+<blockquote>
+<p>PS：我不知道这个女士是谁</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -563,16 +589,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-19T02:29:22+08:00">
-                2017年06月19日
-              </time>
-            
 
             
 
@@ -603,6 +619,10 @@
           
 
           
+              <div class="post-description">
+                  其实，我经常问自己很多问题。也曾经因为自己是一个多态的人而洋洋得意。可是，这样真的好吗？我是谁？我从哪里来？我要向哪里去？我经常迷茫于这些问题而踟蹰不前。当然，谁又没有些小迷茫呢？谁又不会变化，不会走出迷茫呢？我想要主导自己的变化，想要每时每刻做一个更好的自己。所以有了这篇文章，一篇不断更新的文章。
+              </div>
+          
 
         </div>
       </header>
@@ -616,14 +636,42 @@
 
       
         
-          其实，我经常问自己很多问题。也曾经因为自己是一个多态的人而洋洋得意。可是，这样真的好吗？我是谁？我从哪里来？我要向哪里去？我经常迷茫于这些问题而踟蹰不前。当然，谁又没有些小迷茫呢？谁又不会变化，不会走出迷茫呢？我想要主导自己的变化，想要每时每刻做一个更好的自己。所以有了这篇文章，一篇不断更新的文章。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/19/做更好的自己/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="做更好的自己"><a href="#做更好的自己" class="headerlink" title="做更好的自己"></a>做更好的自己</h1><blockquote>
+<p>引言：其实，我经常问自己很多问题。也曾经因为自己是一个多态的人而洋洋得意。可是，这样真的好吗？我是谁？我从哪里来？我要向哪里去？我经常迷茫于这些问题而踟蹰不前。当然，谁又没有些小迷茫呢？谁又不会变化，不会走出迷茫呢？我想要主导自己的变化，想要每时每刻做一个更好的自己。所以有了这篇文章，一篇不断更新的文章。</p>
+</blockquote>
+<h1 id="2017年6月19日"><a href="#2017年6月19日" class="headerlink" title="2017年6月19日"></a>2017年6月19日</h1><ul>
+<li>除了找工作和不停的用知识丰富自己之外，专心锻炼身体，其它的事情都滞后。<ul>
+<li>非特殊情况不晚睡</li>
+<li>每天早起，吃一顿像样的早餐</li>
+<li>溜呆呆的时候动起来</li>
+<li>空闲的时候，多看看书，少玩游戏</li>
+</ul>
+</li>
+</ul>
+<h1 id="2017年6月25日"><a href="#2017年6月25日" class="headerlink" title="2017年6月25日"></a>2017年6月25日</h1><ul>
+<li>每次有计划了，总会出现些小阻碍。命运嘛，不会轻易实现谁的Dream，除非你的够坚定。<ul>
+<li>你可以继续做别人的好朋友，但不要奢望所有人都像你一样成为你的好朋友。</li>
+<li>可以自己做的事情，自己完成。即便道路有些孤独，但风景更好。</li>
+<li>为了身体适当的做事，为了感情做适当的事。</li>
+<li>从今天开始，秀出你自己。别总是期待着那个可以穿透你面具懂你的人。</li>
+<li>你不再是小孩子了，行为，行动要考虑后果。受伤了，躲起来舔舐就好，没必要装作很弱势的样子给所有人看。</li>
+<li>爱惜自己的身体，别再做危险动作了（为你还在疼痛的膝盖抱不平）</li>
+</ul>
+</li>
+</ul>
+<h1 id="2017年6月29日"><a href="#2017年6月29日" class="headerlink" title="2017年6月29日"></a>2017年6月29日</h1><ul>
+<li>取值半径处处相等，摩擦系数点点为零。又想起来高中物理老师教我的一句话。这句话的答案是：又圆又滑。算是处世哲学的一种。过去了这么久，就在刚刚，我又悟出来另一层意思<ul>
+<li>最近，有个女孩打电话来，和我说她和她那看起来有些幼稚的男友。我听了很多他们故事，发现一件事，我也蹭是故事里的男主人公。我不知道我们的想法是否相似，但我们的行为是如此的一致幼稚。</li>
+<li>推论：你现在所处的每一个时期，之前都有前人经历过，就像长辈经常说的，我走得桥比你走得路还多。而之后，也一定会再有人经历。</li>
+<li>思考：既然经历不可避免，那么如何快速划过不愉快的经历？</li>
+<li>结论：改变，改变自己，世界自然就变了。</li>
+<li>这时，我想起来了老师的这句话，取值半径处处相等==&gt;圆。完美的圆，就像一个完美的句号。我的人生该如何才能画这一样一个完美的句号呢？圆圈上的每一个点的切线防线都是不同的，从开始到结尾都在改变，所以我也要变。而在这之前，我需要先找到一个不变的点，圆心！</li>
+</ul>
+</li>
+</ul>
+
+          
         
       
     </div>
@@ -698,16 +746,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-18T00:03:41+08:00">
-                2017年06月18日
-              </time>
-            
 
             
 
@@ -738,6 +776,10 @@
           
 
           
+              <div class="post-description">
+                  <div><img src="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D_meitu_0.jpg"/><p>从周五晚上就开始不安分了，生活就像这突然间升温的空气，躁动起来了：我想出去玩，一刻也不想待在屋子里。想吃鱼，吃没有刺的鱼。可是终究没有约到玩伴，一个人憋到了很晚，终于熬不住困意，囫囵的睡着了。第二天，又开始发疯似的躁动了，心情就像心脏一样扑通扑通的。可是，朋友们不是有约，就是赖在家里不出门的，就像命中注定的玩笑，不让我出去玩。好吧，既然命运如此，那我当然要自己创造机会去浪一圈啦，谁让我是狮子座小男生呢。</p></div>
+              </div>
+          
 
         </div>
       </header>
@@ -751,14 +793,165 @@
 
       
         
-          <div><img src="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D_meitu_0.jpg"/><p>从周五晚上就开始不安分了，生活就像这突然间升温的空气，躁动起来了：我想出去玩，一刻也不想待在屋子里。想吃鱼，吃没有刺的鱼。可是终究没有约到玩伴，一个人憋到了很晚，终于熬不住困意，囫囵的睡着了。第二天，又开始发疯似的躁动了，心情就像心脏一样扑通扑通的。可是，朋友们不是有约，就是赖在家里不出门的，就像命中注定的玩笑，不让我出去玩。好吧，既然命运如此，那我当然要自己创造机会去浪一圈啦，谁让我是狮子座小男生呢。</p></div>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/18/奥森公园-南园漫行/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="奥林匹克森林公园漫行——南园"><a href="#奥林匹克森林公园漫行——南园" class="headerlink" title="奥林匹克森林公园漫行——南园"></a>奥林匹克森林公园漫行——南园</h1><p><img src="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D_meitu_0.jpg" alt="组图"></p>
+<blockquote>
+<p>不安分的开始</p>
+</blockquote>
+<p>从周五晚上就开始不安分了，生活就像这突然间升温的空气，躁动起来了：我想出去玩，一刻也不想待在屋子里。想吃鱼，吃没有刺的鱼。可是终究没有约到玩伴，一个人憋到了很晚，终于熬不住困意，囫囵的睡着了。第二天，又开始发疯似的躁动了，心情就像心脏一样扑通扑通的。可是，朋友们不是有约，就是赖在家里不出门的，就像命中注定的玩笑，不让我出去玩。好吧，既然命运如此，那我当然要自己创造机会去浪一圈啦，谁让我是狮子座小男生呢。</p>
+<blockquote>
+<p>计划</p>
+</blockquote>
+<p>既然已经确定要创造条件出去玩了，当然要好好计划一番。百度一下，北京和北京周边，能玩的真不少~（开心中….)，水长城，八达岭，龙庆峡，青龙峡，云蒙山，等等。好吧，我都想去，谁让我没去过什么地方呢。麻利的穿衣服，收拾行李，料理呆呆（我的狗狗），然后….唔….无意间扫了一眼百度，这些地方，最晚的下午7点也要闭园了…瞅瞅表，快五点了….怎么办，去哪里呢？脑子里扫过了一个地方，<strong>奥森</strong>，这个地方我去过，而且不止一次的去过，第一次是公司运动会，我迟到了，等我到的时候，大家已经跑完大半圈了，然后…我偷偷的溜掉，假装没来过。第二次是个雨天，不大，春天的细雨，我没进公园，在奥森门口的大道上，溜达，希望雨能洗刷心中的迷惘。第三次，是和三个小伙伴，好吧，我们没有转悠奥森，只是找个了地方打扑克，然后无私的为蚊子大军献了些血。其实还有很多次，不过要追溯到很久之前了。</p>
+<p>想想看，去了那么多次，我却一次都没有真正漫步过奥森，好吧，就这里了。我要转遍奥森…那为什么题目副标题是南园呢？恩…事情是这样的，我进园不久就迷路了，等我找到自己进来的门时，已经累的瘫倒在草坪上了….</p>
+<blockquote>
+<p>两个巧合，我发誓，我不是坏人，不管你信不信</p>
+</blockquote>
+<p>在奥森里发生了这样两件事</p>
+<ol>
+<li>我扎入了一条小路，并且路过了一个没有开放的卫生间。这时，我面前的一对情侣中的女孩提问了，<strong>“哪里有厕所呢？一会我们走得时候多注意，我要上厕所。”</strong>我发誓我没有偷听的习惯啊，可是这些话一字不差的落入我的耳朵。然后…巧合发生了，说完这些话的女孩，瞅了我一眼，在我看来更像是傻愣愣的瞅着我。这时…我鬼使神差般的侧身，指着身后的方向说，<strong>“沿着这条路向下走，就能看到了”</strong>。两人说了谢谢，便转身离开了。而这时的我，正在努力的在脑海里搜索，我来的路上是否有厕所呢？唔…有吧？嗯，一定有的~！我不是骗子。好吧，为了证明自己没有骗人，走了几步后，我果断回头，沿着自己指的路去寻找自己口中的厕所了。果然，在我指的方向上，我发现了我口中的厕所。我就说我不会骗人嘛，我是好人~。当然咯…希望他们坚定不移的按照我说的去做，不能怀疑我，不然这将近三公里的路程，他们肯定走歪了。我记得他们转身离开时，步伐并不沉重，挺平常的。所以，我相信，他们一定坚持到了。<code>知道自己没有骗人，心情突然很好...然后...我就迷路了</code></li>
+<li>在一条路上，我看到一个老军人。是位老爷爷，穿着军装，手中提着布袋，布袋里不知道装的什么，在唱着激昂的军歌，音量也很激昂，我老远就听到了。老爷爷走得标准的军步，腰杆笔直，我忍不住想将他拍下来。然后…被老爷爷发现了。我以为自己马上就要被这位老红军就地正法了…结果老爷爷，触了触眼镜，摆了一个POSE。哇，这才是军人，中国的军人。铁血卫国，热血为民。</li>
+</ol>
+<blockquote>
+<p>好吧，请收起来西红柿和鸡蛋，不啰嗦了，图来了 &gt;_&lt;</p>
+</blockquote>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4636.JPG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4649.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4726.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4704.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4763.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4737.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4725.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4688.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4690.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4705.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4738.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4685.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4761.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4750.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4752.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4696.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4654.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4744.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4687.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4650.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4683.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4751.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4715.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4714.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4754.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4724.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4668.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4694.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4721.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4689.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4719.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4710.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4659.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4657.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4748.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4685.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4701.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4702.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4743.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4741.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4739.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4760.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4713.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4723.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4639.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4703.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4678.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4684.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4665.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4667.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4708.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4762.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4653.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4699.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4700.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4663.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4716.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4670.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4661.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4735.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4729.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4637.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4757.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4731.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4736.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4674.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4675.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4638.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4640.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4651.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4643.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4644.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4728.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4732.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4742.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4648.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4642.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4671.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4660.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4745.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4647.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4746.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4672.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4692.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4747.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4664.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4677.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4680.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4697.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4727.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4706.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4756.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4673.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4686.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4645.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4775.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4755.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4676.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4679.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4698.PNG" alt="奥森图集-南园"></p>
+<blockquote>
+<p>漫行后记：吃鱼，逗猫</p>
+<p>不得不说，有一个心疼自己的弟弟真好。我要是宿舍的老大就好了，就有4个弟弟了…可惜，我只有一个</p>
+</blockquote>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4778.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4777.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4779.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4780.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4787.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4789.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4791.PNG" alt="奥森图集-南园"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4790.PNG" alt="奥森图集-南园"></p>
+<h1 id="重要的事情"><a href="#重要的事情" class="headerlink" title="重要的事情"></a>重要的事情</h1><blockquote>
+<p>鸣谢</p>
+</blockquote>
+<ul>
+<li><p>感谢今天各种理由不陪我出来玩的懒虫们，祝你们长得白白胖胖的，嘿嘿😜</p>
+</li>
+<li><p>感谢小雨弟弟的款待，烤鱼特别好吃。看到亲近的朋友，味道更好。准备宿舍聚聚吧，想大家了。</p>
+</li>
+<li><p>感谢小黑不辞辛苦的再次带我轧马路~贴图一张，以资鼓励</p>
+<p> <img src="http://oqya1rwnj.bkt.clouddn.com/IMG_4633.JPG" alt="奥森图集-南园"></p>
+<blockquote>
+<p>更重要的事情</p>
+</blockquote>
+<p> 没有人好奇相册集里为啥没有我吗？真的没有人好奇嘛？</p>
+<p> 恩恩，没错~</p>
+<p> 我还是单森，单森，单森….😆</p>
+<p> 重要的事说三遍</p>
+</li>
+</ul>
+<blockquote>
+<p>写完这篇文章的时候已经是父亲节啦，祝愿爸爸身体健康，幸福，快乐。我会努力成熟，努力和爸爸一起撑起这个家庭的，爸爸，辛苦了~爱你。</p>
+<p>也祝愿天下所有的爸爸，健康快乐。</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -833,16 +1026,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T20:09:18+08:00">
-                2017年06月16日
-              </time>
-            
 
             
 
@@ -873,6 +1056,10 @@
           
 
           
+              <div class="post-description">
+                  生活总会有一些不如意，但那又怎样呢？我有一个温暖的家庭，一帮爱我的亲人。这样的我，有什么理由不开心，不幸福，不阳光的走下去呢？
+              </div>
+          
 
         </div>
       </header>
@@ -886,14 +1073,73 @@
 
       
         
-          生活总会有一些不如意，但那又怎样呢？我有一个温暖的家庭，一帮爱我的亲人。这样的我，有什么理由不开心，不幸福，不阳光的走下去呢？
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/16/嗯嗯，谢谢妈/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="嗯嗯，谢谢妈"><a href="#嗯嗯，谢谢妈" class="headerlink" title="嗯嗯，谢谢妈"></a>嗯嗯，谢谢妈</h1><blockquote>
+<p>对于母爱这件事情，我实在是不知道该如何用文笔表达了。我们的对话有的时候很简单，有的时候又很啰嗦，甚至有的时候会有一些小争吵。但，回过头来，总是那么温暖。</p>
+<p>妈妈：儿子，今天早上给学生抄诗歌，多读了几首，送给你。</p>
+<p>我：嗯嗯，谢谢妈。</p>
+</blockquote>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/WechatIMG5.jpeg" alt="妈妈发来的诗歌截图"></p>
+<p><img src="http://oqya1rwnj.bkt.clouddn.com/WechatIMG4.jpeg" alt="妈妈发来的诗歌截图"></p>
+<blockquote>
+<h1 id="《倘若才华得不到承认》"><a href="#《倘若才华得不到承认》" class="headerlink" title="《倘若才华得不到承认》"></a>《倘若才华得不到承认》</h1></blockquote>
+<p>倘若才华得不到承认</p>
+<p>与其诅咒    不如坚忍</p>
+<p>在坚忍中继续力量</p>
+<p>默默耕耘</p>
+<p><br></p>
+<p>诅咒    无济于事</p>
+<p>只能让原来的光芒暗淡</p>
+<p>在变得暗淡的光芒中</p>
+<p>沦丧的更有    大树的精神</p>
+<p><br></p>
+<p>飘来的是云   </p>
+<p>飘去的也是云</p>
+<p>既然今天</p>
+<p>没人识得星星一颗</p>
+<p>那么明日</p>
+<p>何妨做    皓月一轮</p>
+<blockquote>
+<h1 id="《我知道》"><a href="#《我知道》" class="headerlink" title="《我知道》"></a>《我知道》</h1></blockquote>
+<p>欢乐是人生的驿站</p>
+<p>痛苦是生命的航程</p>
+<p>我知道</p>
+<p>当你心绪沉重的时候</p>
+<p>最好的礼物</p>
+<p>是送你一片宁静的天空</p>
+<p><br></p>
+<p>你会迷惘</p>
+<p>也会清醒</p>
+<p>当夜幕低落的时候</p>
+<p>你会感受到</p>
+<p>有一双温暖的眼睛</p>
+<p><br></p>
+<p>我知道</p>
+<p>当你拭干面颊上的泪水</p>
+<p>你会灿然一笑</p>
+<p>那时    我会轻轻对你说</p>
+<p>走吧    你看</p>
+<p>槐花正香    月色正明</p>
+<blockquote>
+<h1 id="《山高路远》"><a href="#《山高路远》" class="headerlink" title="《山高路远》"></a>《山高路远》</h1></blockquote>
+<p>呼喊是爆发的沉默</p>
+<p>沉默是无声的召唤</p>
+<p>不论激越</p>
+<p>还是宁静</p>
+<p>我祈求</p>
+<p>只要不是平淡</p>
+<p>如果远方呼喊我</p>
+<p>我就走向远方</p>
+<p>如果大山召唤我</p>
+<p>我就走向大山</p>
+<p>双脚磨破</p>
+<p>干脆再让夕阳涂抹小路</p>
+<p>双手划烂</p>
+<p>索性就让荆棘变成杜鹃</p>
+<p>没有比脚更长的路</p>
+<p>没有比人更高的山</p>
+
+          
         
       
     </div>
@@ -968,16 +1214,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T19:03:08+08:00">
-                2017年06月12日
-              </time>
-            
 
             
 
@@ -1008,6 +1244,10 @@
           
 
           
+              <div class="post-description">
+                  <a href="https://user.qzone.qq.com/371002898/infocenter?ptsig=qAdpiUOaMcg3sGHR2Tp9nZR6yn6689NQCJfvF0ftySE_">转自我的空间</a>
+              </div>
+          
 
         </div>
       </header>
@@ -1021,14 +1261,17 @@
 
       
         
-          <a href="https://user.qzone.qq.com/371002898/infocenter?ptsig=qAdpiUOaMcg3sGHR2Tp9nZR6yn6689NQCJfvF0ftySE_">转自我的空间</a>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/12/无情的有情人/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>这本来应该是一篇很早之前就写下的文章，早到，我刚刚离职后的第一天….<br>这本来应该是一篇很长很长的情感故事，记录，我在百度和在百度时百度之外的生活….<br>这本来…应该还有很多本来…</p>
+<p>因为这太多的”本来“，我选择了放弃这篇”本来“的文章。<br>因为，我不想再写下一篇记事录，或者煽情的文章去寻得谁的同情。<br>因为，我不想看着自己沉溺于自己给自己制造的孤独中，卑微的懦弱着。<br>因为，我想他了，想那个我本来应该有的样子。<br>因为，我想他了，想那个让自己也骄傲的样子。</p>
+<p>离开，是因为，那里我嗅不到任何关于自我的气息。<br>离开，是因为，我想彻底的改变自己，想要一场革命。<br>离开，是因为，此时此刻，刚刚好，二五破妄。 </p>
+<p>是的，这是一个阴谋，我自己策划的阴谋。<br>是的，这是一场谋杀，我就是被谋杀的对象。<br>是的，这是一次抛弃，毫无感情，毫无保留的抛弃。</p>
+<p>我要一次轮回，彻底杀死那些自己也无法忍受的”善良“。<br>我要一次轮回，从头重拾那份孤傲。<br>我要一次轮回，前生今世，花谢花开，随风十里。</p>
+<p>新的航程，我不会再去费心寻谁，志同，路自然相逢。<br>新的航程，我不会再忧心孤独，这本没有什么，从奈何桥到轮回境，我已走了太久太久。<br>新的航程，我不会再畏手畏脚，思前顾后，我就是我，天地不改我意，五岳不弯我脊。<br>新的航程，我不会在乎谁的贬低，谁的夸赞。乘风破浪，逆风收帆。</p>
+<p>这也许是近期唯一的一篇看起来像文章的文字了。<br>本就没有太大意义，只是想告诉这个喧喧嚷嚷，灯红酒绿的世界：”我胡汉三又回来了“！<br>其实也并不在乎这世界是否有人听到，此”胡汉三“并未要烧杀抢夺，本浮沉一浮游，亦不在意是否有人注意。</p>
+<p>… 你是谁？<br>… 你好 ~ ，我等你很久了。</p>
+
+          
         
       
     </div>
@@ -1103,16 +1346,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:22:10+08:00">
-                2017年06月03日
-              </time>
-            
 
             
 
@@ -1143,6 +1376,10 @@
           
 
           
+              <div class="post-description">
+                  <div><img src="http://oqya1rwnj.bkt.clouddn.com/10074a0c28c74a26b022ab5f7036769b.jpg"/><p>当我告诉自己要忘记你的时候，我便忘不掉了。所以，先启程，努力的生活，踏遍山河，揽尽山川，不经意间，悄然忘却。我相信有那样一个你，在生气，气我停步不前。一定有那样一个你，在等我，微风中青岚的裙摆，鼓鼓的气嘟嘟的笑脸。</p></div>
+              </div>
+          
 
         </div>
       </header>
@@ -1156,14 +1393,16 @@
 
       
         
-          <div><img src="http://oqya1rwnj.bkt.clouddn.com/10074a0c28c74a26b022ab5f7036769b.jpg"/><p>当我告诉自己要忘记你的时候，我便忘不掉了。所以，先启程，努力的生活，踏遍山河，揽尽山川，不经意间，悄然忘却。我相信有那样一个你，在生气，气我停步不前。一定有那样一个你，在等我，微风中青岚的裙摆，鼓鼓的气嘟嘟的笑脸。</p></div>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/03/先启程，再忘却/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><img src="http://oqya1rwnj.bkt.clouddn.com/10074a0c28c74a26b022ab5f7036769b.jpg"></p>
+<h1 id="先启程，再忘却"><a href="#先启程，再忘却" class="headerlink" title="先启程，再忘却"></a>先启程，再忘却</h1><script>
+
+alert('这里我还没想好要写些什么');
+
+</script>
+
+<div style="display:none"><br><br>&gt; 云淡天清拂风暖，凡尘俗事本无牵。世间多少离情苦，离散无悔尽是缘。<br><br>谈到感情，我能想到可以形容自己的词汇，除了白痴，再无其他了。在感情中，很多时候，我并不知道怎样算是适度，何时又该抽身正果。昨晚夜游后海酒吧街后，睡不着，索性就看了《欢乐颂2》。刚巧不巧的，似乎是命运都安排好的，我盯住了何莹莹，目不转睛的盯住了。当然，这并不是我喜欢这个类型的女孩子，相反的，我很讨厌在情感中失去理智的何莹莹。可是…我竟然在这段无厘头的感情片曲中，看到了自己的影子。不，不是影子，应该是翻版。我讨厌这样的何莹莹，就像突然间憎恶这样的自己。<br><br>从出生到现在，我经历了2段恋情。一个相处了很久很久，止于谈婚论嫁的前期，恰巧应了七年之痒的诅咒。另一个相处了几个月，止于热恋的前期，又刚好应了三月之痛的诅咒。每一段恋情，我都倾心于当时的时间了，可是，我的感情，存在的意义似乎就是为了给诅咒正名。经历了一番狂风骤雨后，我发现，原来一切都是理所应当的，不是命运故意玩弄，只因，我太白痴。<br><br>&gt; 分手后，我该如何自处<br><br>每一次巧合，每一次相遇，又或者每一段事情，开始就意味着要结束的。就像我们从生下来就要面对死亡一样，长长短短终究逃不过真理。也因此，白首到老，显得尤弥珍贵，让人如此羡慕。恋爱，就代表着分手的可能性被无限变大，恋爱的开始，是分手从0到非0的本质衍生。就像双生并蒂莲一样，因为爱，因为恨，所以美丽。那么，分手后我该如何自处呢？<br><br>曾经，我就像恋情中的何莹莹，不，也许我就是何莹莹。用一些无关紧要，却像是救命稻草一样的理由，麻痹自己，也努力麻痹周围的人，保持着那一丝联系，稍有风吹躁动，内心便包涛汹涌。就像是，屋外下小雨，屋内下中雨。屋外下中雨，我却无法躲到屋外去避雨。我努力的扮演着感情中的受伤者，装作很无辜的样子。我奋力的将自己的痛苦期无线延长，然后努力让感情中真正的受伤者，在愧疚中忘不掉自己。写到这里，我已经想抽自己一顿了。总之，看清自己正在扮演的角色之后，我如此的讨厌自己，恨不得弃自己而去。对，我要弃自己而去。<br><br>&gt; 改变，再不改变，我就要扼杀这个讨厌的角色设定了。<br><br>其实，还想文绉绉的写下一些自己看法。不过真的等不了了，看到现在的自己，我就恶心的想吐。昨晚，我想了如下几条初步实施方案。<br><br>1. 她已经有男朋友了，甚至领了结婚证。我必须滚蛋。不仅滚出她的生活，也要将她请出我的生活。除了手机号，删除所有常用联系方式，不看朋友圈，不看空间，不打听任何关于她的事情。只保留一种最原始的且不稳定的单向联系方式，成为最熟悉的陌生人。我相信，已经有天使爱她，而我该好好地爱自己。<br>2. 我单身，你也单身。无论中间经历了什么坎坷，我始终是最了解你的那个人。虽然我们必然不可能走到一起了，但是你需要帮忙的时候，我依旧会站在你身边，我是你的朋友，像亲人一样的朋友。而这一切始于我们都单身了，也应该终于，我们有一方不再孤独了。我相信，我们终将会遇到对的人，代替对方，守护彼此。<br>3. 作为一个男孩子，别整天扮演一个受伤的小狮子的样子。不是我说你，狮群中有你这样的懦夫，真是一件不光彩的事情。我要回到自己的群体，找到狮子的雄心，然后站到最高的山巅，任寒风凌冽，我自笑傲山河。<br>4. 过去的就过去了，不用刻意忘掉，但也不能随意或者刻意的提起。我相信，以我的超群记忆力，真正的忘记，是再也不会掀起波澜。<br><br>&gt; 先启程，再忘却<br><br>我该向前走了，启程去看大好河山。<br><br>我该向前奔跑了，启程去踏碎洱海的宁静。<br><br>我，要放弃自己了。因为，我要迎接一个全新的自己。虽然我不知道，我会不会讨厌那个将要降临的情感灵魂，但是，我至少讨厌现在的自己不能自拔。我不知道这个过程，会经历一个怎样的“快感”，但是无论是苦是甜，我都迫不及待的等待迎接了。<br><br>先启程，管他是否忘却。踏破一座山丘，踏碎一条川流，一步一忆，我会寻找更美好的世界。<br><br>先启程，管他是否风雨。遇风一起吼，遇雨一起狂。若要潇洒，便先疯狂。<br><br>忘却？有必要吗？<br><br>我，可以创造更好的回忆~<br><br></div>
+          
         
       
     </div>
@@ -1238,16 +1477,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T02:18:40+08:00">
-                2017年06月03日
-              </time>
-            
 
             
 
@@ -1278,6 +1507,10 @@
           
 
           
+              <div class="post-description">
+                  <img src="http://oqxnqax82.bkt.clouddn.com/20170506_025653.jpg"/>
+              </div>
+          
 
         </div>
       </header>
@@ -1291,14 +1524,46 @@
 
       
         
-          <img src="http://oqxnqax82.bkt.clouddn.com/20170506_025653.jpg"/>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/03/夜游后海酒吧街/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><img src="http://oqxnqax82.bkt.clouddn.com/20170506_025653.jpg"></p>
+<h1 id="夜游后海酒吧街"><a href="#夜游后海酒吧街" class="headerlink" title="夜游后海酒吧街"></a>夜游后海酒吧街</h1><blockquote>
+<p>游前准备，装酷小狮子帽</p>
+</blockquote>
+<p>今天我的帽子到啦，<strong>小狮子座夜光缝线</strong>。第一次在网上买帽子，也是第一次给自己买帽子。感觉真的蛮惊喜的，质量样式都不错哦。好吧，决定啦，今晚，小狮子就带着这个帽子出去浪啦~</p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4446.PNG" alt="夜游后海酒吧街"></p>
+<blockquote>
+<p>酒吧街夜景</p>
+</blockquote>
+<p>今天第一次逛完了整条后海酒吧街，绕着湖，慢慢的走，慢慢的听，慢慢的看着月下湖，慢慢的看着北京的夜~</p>
+<p>我喜欢站在湖的对面，看这灯红酒绿，好像超然世外</p>
+<p>一路上看到了好多坐吧歌手，也看到了几位流浪歌手。并不是所有人都唱的很好听，至少我是这么觉得的，但是越是不好听的，却越是容易打动人心，没有名利，利益，唱为快乐，只因喜欢。生活嘛，难得潇洒~</p>
+<p>话不多说，有图有真相</p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4456.JPG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_1891.JPG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4455.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4462.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_7061.JPG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4457.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4450.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4458.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4463.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4460.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4448.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4461.PNG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4459.PNG" alt="夜游后海酒吧街"></p>
+<blockquote>
+<p>小灰灰正名</p>
+</blockquote>
+<p>首先呢，要感谢小灰灰的守护和陪伴。不然我是没有机会在北京任性夜游的。顺便呢，为小灰灰正名。之前和朋友去过一次官厅水库，路上用蓝牙连接手机听歌来着，音质很不好。当时以为是音响坏了呢，今晚在后海酒吧街偶遇一个CD摊位，买了5张CD，回来时听了一路，音质还是不错的哦。顺便和大家说一下，他那的CD虽然是盗版的，但是拷贝的音源还是不错的。打打价，会便宜不少哦。</p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4466.JPG" alt="夜游后海酒吧街"></p>
+<p><img src="http://oqxnqax82.bkt.clouddn.com/IMG_4464.JPG" alt="夜游后海酒吧街"></p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<p>后海酒吧街，夜景的确不错。尤其是夜下的后海。朋友聚聚，偶尔可以来此，小情调一下。喝酒的话，不建议来此，（PS，后海酒吧街的大部分酒吧是存在拉客和低消的，来玩的时候要注意哦，不然钱包可要哭了）。我听说过一个不错的伴山度假村，那里的酒不错，风景也好。和毕业季去的丽江酒吧街，各有风味吧，不好辨评。</p>
+<p>好啦，现在到家咯。大家晚安~</p>
+
+          
         
       
     </div>
@@ -1373,16 +1638,6 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T01:01:41+08:00">
-                2017年04月12日
-              </time>
-            
 
             
 
@@ -1413,6 +1668,10 @@
           
 
           
+              <div class="post-description">
+                  这是我在网上看到的一篇文章，整理了开发过程中需要注意的一些小的点，还蛮全面的，原文地址写在文末了
+              </div>
+          
 
         </div>
       </header>
@@ -1426,14 +1685,17 @@
 
       
         
-          这是我在网上看到的一篇文章，整理了开发过程中需要注意的一些小的点，还蛮全面的，原文地址写在文末了
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/12/centOS-安装最新版本的node/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="CentOS安装最新版本的Node-js"><a href="#CentOS安装最新版本的Node-js" class="headerlink" title="CentOS安装最新版本的Node.js"></a>CentOS安装最新版本的Node.js</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>gcc</li>
+<li>python 版本大于2.6</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载最新包并解压"><a href="#下载最新包并解压" class="headerlink" title="下载最新包并解压"></a>下载最新包并解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src</span><br><span class="line">wget http://nodejs.org/dist/node-latest.tar.gz  </span><br><span class="line">tar -zxvf node-latest.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd node-&lt;yor version&gt;</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>部分地方需要管理员权限，命令前插入sudu后输入密码即可</p>
+
+          
         
       
     </div>
@@ -1508,44 +1770,12 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-21T03:02:42+08:00">
-                2017年01月21日
-              </time>
-            
 
             
 
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1570,6 +1800,10 @@
           
 
           
+              <div class="post-description">
+                  既然睡不着，那就随便写两句吧。刚刚好，小年刚来未去。人生就像这样，命运总会安排，在刚好的时间，遇到刚好的人。
+              </div>
+          
 
         </div>
       </header>
@@ -1583,14 +1817,22 @@
 
       
         
-          既然睡不着，那就随便写两句吧。刚刚好，小年刚来未去。人生就像这样，命运总会安排，在刚好的时间，遇到刚好的人。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/21/此时遇到，刚刚好/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="此时遇到，刚刚好"><a href="#此时遇到，刚刚好" class="headerlink" title="此时遇到，刚刚好"></a>此时遇到，刚刚好</h1><p>既然睡不着，那就随便写两句吧。刚刚好，小年刚来未去。人生就像这样，命运总会安排，在刚好的时间，遇到刚好的人。</p>
+<p>最近，我和一个女孩子聊得比较多。或者说，我基本只在和这一个女孩子聊天。女孩聪慧，心思细腻。她就像命中注定的一样，出现在我最迷茫的那段日子。也许是命运的怜悯，女孩的出现，就像阴霾中的男孩看到的第一缕光。透过云层，和煦，温暖。</p>
+<p>有这样一段时间，男孩从不和周围的人沟通。甚至，很多的同事都不知道他的存在，只知道，教育事业部招了一个新人，也许是个男孩子吧。男孩从不和大家一起吃饭，他总是一个人躲在楼顶的跑道，去看远方的百望山。山的名字，似乎就是为男孩量身定做的，他自己都不知道看过多少次了。男孩记得，朝阳下山的样子，记得烈日下山的样子，也记得余晖下山的样子。他了解山，甚至超过了解那时的自己。男孩只是看着山，不说话。男孩怕，怕张嘴了，就会忍不住哭出来。</p>
+<p>领导找男孩谈话，一次又一次。男孩只是听，不说话。最后从舌尖顶出一句谢谢，谈话就算是结束了。男孩知道他惹大家失望了，只是，除了谢谢，男孩不知道该说什么了。他们，毕竟只是陌生人，即便要撑，也要撑作很坚强的样子。</p>
+<p>又是一个午后，又是那个足迹罕至的屋顶，又是那个男孩。一样的天空，天空下一样的百望山。唯一不同的是，男孩拿出手机，打了一个电话，是打给一个女孩的。那是男孩第一次开口，第一次说了那么多话，第一次找到了想要诉说的对象…是的，那日，男孩说了很多，努力装作一切都过去了，无所谓的样子。虽然挂断电话后，男孩依然安静的倒在长椅上，看了百望山好久，但我相信，一切是从那通电话开始过去的……真正的过去了。从拨通电话开始，男孩的时间不再静止在过去，开始流向未知了。<br>命运就是这样，我们都是它的玩具。而它也像是一个长不大的孩子，调皮，却也知道珍惜。总是在关上一扇门的时候，打开一扇窗。只是，这门似乎关的有点久了……是不是出去玩了，忘记了被锁住的我？门终究是没有打开的，而墙壁却多了一扇窗，凿窗的人是一个女孩，不高，爱吃好吃的。她或许是命运的使者，又或许就是我命运中，不可或缺的一部分。</p>
+<p>女孩不大，95年生人，小男孩几岁。而她却像是男孩心里的姐姐（男孩总倔强的认为，心里是住着一个姐姐的，从小，一直陪伴着他，守护他，从未离去），出现在了他最需要的时候……刚刚好。男孩感激女孩，就像感激着少虎的心情一样，用男孩的话说，她对男孩是有恩的，男孩希望能为女孩做些什么。<br>人非草木，熟能生情。渐渐地，男孩视女孩如妹妹，异父异母的亲妹妹。男孩希望女孩开心，健康，平安。虽然这和男孩对所有的朋友的祝福都一样，却唯独多了一分联系。男孩从来不称呼女孩为妹妹，却喜欢在聊天时，发“摸摸头”的表情。他喜欢这个词，很温暖，却不像情侣，不像长辈，更像兄妹，纯粹的温暖。女孩虽小，却似乎也有很多自己的小秘密，满满的心事藏在那笨拙的妆颜下。女孩不说，男孩便也不问，时光静好。</p>
+<blockquote>
+<p>命运就是这样，</p>
+<p>在刚刚好的时间，遇到刚刚好的人。</p>
+<p>又不知在何时消弭在人海茫茫… …</p>
+<p>浮游一生，怀着感恩的心，珍惜每一个刚刚好出现的人，做刚刚好的自己。</p>
+<p>你在看吗？此时遇见，刚刚好。</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -1706,6 +1948,35 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/objectBoy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zifeng1203s" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-code"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/uploads/RESUME.doc" target="_blank" title="RESUME">
+                  
+                    <i class="fa fa-fw fa-file-word-o"></i>
+                  
+                  RESUME
+                </a>
+              </span>
+            
+          
         </div>
 
         
@@ -1735,25 +2006,14 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">赵明路</span>
 </div>
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
 
 
         
@@ -1795,22 +2055,22 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1856,7 +2116,7 @@
   
     
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
