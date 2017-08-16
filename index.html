@@ -760,136 +760,14 @@
 
       
         
-          
-            <h1 id="《Android设计模式》"><a href="#《Android设计模式》" class="headerlink" title="《Android设计模式》"></a>《Android设计模式》</h1><p>[TOC]</p>
-<h1 id="面向对象的六大原则"><a href="#面向对象的六大原则" class="headerlink" title="面向对象的六大原则"></a>面向对象的六大原则</h1><blockquote>
-<p>抽象，单一职责，最小化</p>
-</blockquote>
-<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><blockquote>
-<p>一个类，应该仅有一个引起它变化的原因。一个类应该是一组相关性很高的函数，数据的封装</p>
-</blockquote>
-<p><strong>DEMO</strong></p>
-<p>图片下载：下载功能（ImageLoader）+缓存功能（ImageCache）</p>
-<p><img src="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%284%29.png" alt="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%284%29.png"></p>
-<h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2><blockquote>
-<p>目的：稳定，灵活</p>
-<p>软件中的对象（类，模块，函数等）对扩展是开放的，对修改是封闭的</p>
-</blockquote>
-<ul>
-<li><p>通过不同的又相同功能的类实现同一接口，并在其需要的类中，通过set方法注入实现，实现依赖注入</p>
-<ul>
-<li>ImageCache定义成接口，MemoryCache，DiskCache，DoubleCache实现该接口</li>
-<li>ImageLoader中加入setImageCache方法</li>
-<li>好处：扩展ImageLoader的缓存方式，不需要修改ImageLoader类，只需要将新的方式类实现ImageCache接口即可  —&gt; 扩展开放，修改封闭原则</li>
-</ul>
-<p><img src="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%286%29.png" alt=""></p>
-</li>
-</ul>
-<h2 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h2><blockquote>
-<p>目的：构建扩展性更好的系统</p>
-<p>所有引用基类的地方必须能透明的使用其子类的对象  —&gt;  继承，多态  —&gt; 抽象</p>
-</blockquote>
-<p><img src="http://oqya1rwnj.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%287%29.png" alt=""></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Window</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(View child)</span></span>&#123;</span><br><span class="line">    child.draw();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">measure</span><span class="params">(<span class="keyword">int</span> widht , <span class="keyword">int</span> height)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 测量视图大小</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">View</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 绘制按钮</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextView</span> <span class="keyword">extends</span> <span class="title">View</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 绘制文本</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="继承的优点"><a href="#继承的优点" class="headerlink" title="继承的优点"></a>继承的优点</h3><ol>
-<li>代码重用，减少创建类的成本，每个子类都拥有父类的方法和属性</li>
-<li>子类与父类基本相似，但又与父类有所区别</li>
-<li>提高代码的可扩展性</li>
-</ol>
-<h3 id="继承的缺点"><a href="#继承的缺点" class="headerlink" title="继承的缺点"></a>继承的缺点</h3><ol>
-<li>继承是入侵性的，只要继承就必须拥有父类的所有属性和方法</li>
-<li>可能造成子类代码冗余，灵活性降低，因为子类必须拥有父类的属性和方法</li>
-</ol>
-<h3 id="开闭原则和里式替换原则的关系"><a href="#开闭原则和里式替换原则的关系" class="headerlink" title="开闭原则和里式替换原则的关系"></a>开闭原则和里式替换原则的关系</h3><p>生死相依，不离不弃，通过里式替换来达到对扩展的开放，对修改的关闭效果。（个人理解，开闭原则是一种要遵循的理论，里式替换原则是通过抽象实现了开闭原则）</p>
-<h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><blockquote>
-<p>让项目拥有变化的能力</p>
-<ol>
-<li>高层模块不应该依赖底层模块，两者都应该依赖其抽象</li>
-<li>抽象不应该依赖细节</li>
-<li>细节应该依赖抽象</li>
-</ol>
-<p>注：抽象指接口(interface)或抽象类(abstract)，两者都不能被直接实例化，细节指实现类。高层模块是调用端，低层模块就是具体的实现类。</p>
-</blockquote>
-<h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><blockquote>
-<p>将庞大臃肿的接口拆分成更小的和更具体的接口，让客户端依赖的接口尽可能的小，不依赖不需要的接口</p>
-</blockquote>
-<p><strong>DEMO</strong></p>
-<ol>
-<li>java中有一个Closeable的接口，只实现了一个方法close()，但是却有100多个类实现了这个接口，可理解为这100多个实现类都是可以关闭的，或者说，所有继承该接口的类都是可以关闭的</li>
-<li>调用close方法需要放在try-catch中，增加代码层级，降低可阅读性</li>
-<li>解决：定义CloseUtils类，只有一个closeQuietly方法，由其关闭</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">CloseUtils</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">CloseUtils</span><span class="params">()</span></span>&#123;&#125; <span class="comment">// 工具类，不需要实例化</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeQuielty</span><span class="params">(Closeable closeable)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(closeable != <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        closeable.close();</span><br><span class="line">      &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CloseUtils.closeQuielty(fileOutputStream);</span></span><br></pre></td></tr></table></figure>
-<h2 id="迪米特原则"><a href="#迪米特原则" class="headerlink" title="迪米特原则"></a>迪米特原则</h2><blockquote>
-<p>一个对象应该对其它对象有最少的了解，简单的说，如果你拜托一个朋友去做一件事的话，你不必关心他是否找了另一个朋友，也不用和他的另一个朋友有任何关系，你只需要结果</p>
-<p>例如：Tenant向中介提出租1000-1500的房子</p>
-<ol>
-<li>Tenant依赖Mediator和Room，由Mediator提供Room信息给Tenant由Tenant自己筛选Room信息</li>
-<li>将筛选功能交给Mediator，Tenant只需要结果信息</li>
-</ol>
-</blockquote>
-<h3 id="方案一UML"><a href="#方案一UML" class="headerlink" title="方案一UML"></a>方案一UML</h3><p><img src="http://oqya1rwnj.bkt.clouddn.com/1.png" alt=""></p>
-<h3 id="方案二UML"><a href="#方案二UML" class="headerlink" title="方案二UML"></a>方案二UML</h3><p><img src="http://oqya1rwnj.bkt.clouddn.com/2.png" alt=""></p>
-<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><blockquote>
-<p>整个系统只需要一个“全局”对象 —&gt; 只实例化一次</p>
-<ol>
-<li>构造函数private</li>
-<li>通过静态方法或者枚举返回单例对象</li>
-<li>确保单例类的对象有且只有一个，尤其在多线程环境下</li>
-<li>确保单例类对象在反序列化时不会重新构建对象</li>
-</ol>
-</blockquote>
-<h3 id="恶汉单例模式"><a href="#恶汉单例模式" class="headerlink" title="恶汉单例模式"></a>恶汉单例模式</h3><p>每次在类加载的时候就实例化好了mCEO，不需要调用getCeo方法，可能增加不必要的开销</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CEO</span> <span class="keyword">extends</span> <span class="title">Staff</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> CEO mCEO = <span class="keyword">new</span> CEO();</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">CEO</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> CEO <span class="title">getCeo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mCEO;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="DCL（Double-Check-Lock"><a href="#DCL（Double-Check-Lock" class="headerlink" title="DCL（Double Check Lock)"></a>DCL（Double Check Lock)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CEO</span> <span class="keyword">extends</span> <span class="title">Staff</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> CEO mCEO = <span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">CEO</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> CEO <span class="title">getCeo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(mCEO == <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(CEO.class)&#123;</span><br><span class="line">        <span class="keyword">if</span>(mCEO == <span class="keyword">null</span>)&#123;</span><br><span class="line">          mCEO = <span class="keyword">new</span> CEO();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mCEO;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>volatile加入是为了防止DCL失效问题，为了保证mCEO对象每次都是从内存中读取</p>
-<p>DCL失效：</p>
-<ol>
-<li>给CEO实例分配内存</li>
-<li>调用CEO()的构造函数，初始化成员字段</li>
-<li>将mCEO对象指向分配的内存空间（此时sInstance!=null)</li>
-</ol>
-<p>因为java编译器允许处理器乱序执行，所以不能确定执行顺序是1，2，3还是1，3，2</p>
-<h3 id="静态内部类单例模式-推荐"><a href="#静态内部类单例模式-推荐" class="headerlink" title="静态内部类单例模式 - 推荐"></a>静态内部类单例模式 - 推荐</h3><p>恶汉模式的扩展</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> SingletonHolder.sInstance;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/**</span><br><span class="line">  *静态内部类</span><br><span class="line">  */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton sInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="之上方法小结"><a href="#之上方法小结" class="headerlink" title="之上方法小结"></a>之上方法小结</h4><p>上述的几种实现方法，在反序列化的时候都可以通过特殊途径去创建类的一个新实例，若要杜绝，需要重写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span> throw ObjectStreamException</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> sInstance;<span class="comment">//mCEO // 该方法默认是生成一个新的对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="枚举单例"><a href="#枚举单例" class="headerlink" title="枚举单例"></a>枚举单例</h3><ol>
-<li>枚举创建实例是线程安全的</li>
-<li>枚举类型也可以拥有字段和方法，和普通的类一样</li>
-<li>枚举类型在任何情况下都是一个单例</li>
-<li>不必担心反序列化问题</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SingletonEnum&#123;</span><br><span class="line">  INSTANCE;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="使用容器实现单例"><a href="#使用容器实现单例" class="headerlink" title="使用容器实现单例"></a>使用容器实现单例</h3><p>可以理解成一个单例的管理工具，在程序开始的时候，将多种单例类型注入其中，使用时根据key值获取。android的单例实现模式是类似的，例如LayoutInflater.form方法的主要部分<code>LayoutInflater layoutInfalter = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)</code>—&gt; 系统核心服务以单例形式存在，减少了资源开销</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonManager</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String,Object&gt; objMap = <span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingletonManager</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">registerService</span><span class="params">(String key , Object instance)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!objMap.containsKey(key))&#123;</span><br><span class="line">      objMap.put(key,instance);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getService</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> objMap.get(key);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Builder模式"><a href="#Builder模式" class="headerlink" title="Builder模式"></a>Builder模式</h1><blockquote>
-<p>将一个复杂对象的构建和它的表示分离，使得同样的构建构成可以创建不同的表示 —&gt; 一步步的创建一个复杂的对象</p>
-<p><strong>优点</strong>：</p>
-<ol>
-<li>良好的封装性，使用建造者模式可以使客户端不必知道产品内部组成的细节</li>
-<li>建造者独立，容易扩展</li>
-</ol>
-<p><strong>缺点</strong>：</p>
-<p>会产生多余的Builder对象以及Director对象，消耗内存</p>
-</blockquote>
-<p><strong>使用场景</strong></p>
-<ol>
-<li>相同的方法，不同的执行顺序，产生不同的事件结果</li>
-<li>多个部件都可以拼装到一个对象中，产生的运行结果不相同</li>
-<li>产品类非常复杂，或者产品类中的调用顺序不同产生了不同的作用</li>
-<li>初始化一个对象特别复杂，例如：参数多，且很多参数都具有默认值时</li>
-</ol>
-<p><img src="http://oqya1rwnj.bkt.clouddn.com/433D8B45-0B68-47D9-B6E8-8F5A804F4239.png" alt=""></p>
-<ul>
-<li>Director：统一组装过程</li>
-<li>Builder：抽象Builder类，规范产品的组建</li>
-<li>ConcreteBuilder：具体的Builder类</li>
-<li>Produce：产品的抽象类</li>
-</ul>
-<p><strong>注：</strong>在日常开发中，常常是可以省略Director对象的，因为它其实做的事情并不多，只是按计划顺序调用了ConcreteBuilder的set方法。我们可以在Builder的set方法返回this（自身）对象，达到链式调用的目的。<code>new ConcreteBuilder.buildPartA().buildPartB().creat()//creat返回mProduct对象</code></p>
-
-          
+          单一职责原则，开闭原则，里式替换原则，依赖倒置原则，接口隔离原则，迪米特原则都是啥？来瞅瞅吧~
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/29/《Android设计模式》笔记整理/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
