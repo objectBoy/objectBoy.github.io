@@ -1,0 +1,913 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～，这里并没有写出最合理的答案，只写了一些思路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试问答">
+<meta property="og:url" content="http://yoursite.com/2016/04/10/面试问答/index.html">
+<meta property="og:site_name" content="清青的驿站">
+<meta property="og:description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～，这里并没有写出最合理的答案，只写了一些思路">
+<meta property="og:updated_time" content="2016-04-14T07:08:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试问答">
+<meta name="twitter:description" content="这是一次面试的时候面试官问到的问题，整理一下，希望能帮助正在找工作的谁，顺便祝福同胞的你：加油～，这里并没有写出最合理的答案，只写了一些思路">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/10/面试问答/"/>
+
+
+
+
+
+  <title> 面试问答 | 清青的驿站 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8adc3c6f6b53214e4c4fbe5395529ac2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清青的驿站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/10/面试问答/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清青">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/auth_head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清青的驿站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                面试问答
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-10T20:53:19+08:00">
+                2016年04月10日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/10/面试问答/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/面试问答/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><p>Activity跳转问题：当A－&gt;B-&gt;A时，如何知道这个A是不是复用的上一个A</p>
+<ul>
+<li>会调用onNewIntent（）方法</li>
+</ul>
+</li>
+<li><p>ContentProvider怎么用</p>
+<ul>
+<li>ContentProvider为存储和获取数据提供了统一的接口。ContentProvide对数据进行封装，不用关心数据存储的细节。使用表的形式来组织数据。</li>
+<li>每一个应用程序都是运行在不同的应用程序的，数据和文件在不同应用程序之间达到数据的共享不是没有可能，而是显得比较复杂，</li>
+<li>使用ContentProvider可以在不同的应用程序之间共享数据。 </li>
+<li>Android为常见的一些数据提供了默认的ContentProvider（包括音频、视频、图片和通讯录等）。 </li>
+<li>用ContentProvider对外共享数据的好处是统一了数据的访问方式。</li>
+<li>每一个ContentProvider都拥有一个公共的URI，这个URI用于表示这个ContentProvider所提供的数据。 </li>
+<li><a href="http://www.2cto.com/kf/201404/296974.html" target="_blank" rel="external">http://www.2cto.com/kf/201404/296974.html</a></li>
+</ul>
+</li>
+<li>Android的存储方式<ul>
+<li>Shared Preferences、网络存储、文件存储、外储存储、SQLite  </li>
+</ul>
+</li>
+<li>thread  和 thread in service 的区别及优势<ul>
+<li>要将android 组件和android C/S架构的概念理解清楚，将android比喻成一栋办公大楼，android 中进程就是一个办公室，线程就是办公室里面的员工，办公室是不能干活的，而真正干活的是这个办公室里面的员工。一个员工只能在一个办公室里面干活，而一个办公室可以有很多员工。<br>Android的老板希望它的公司能办理的井井有条，于是针对每一种职能专门设立管理部门，例如WMS，负责窗口管理的，例如MPS，负责多媒体播放的。<br>一个部门可以有一个或多个办公室，一个办公室也可以有多个部门。而android的管理部门往往是不干什么实事的，就像我们的天朝的猿类，你推它一下，它才动一下。所以android需要一些干实事的部门，做对外客户的，这些部门我们统称为apk。Android中有好多这种部门，于是为了防止这些部门瞎干，又把部门分成Activity、Service、BrocastReceiver、ContentProvider四种子部门，这些子部门就是用来跟其它部门做沟通的，而所有的子部门运作时都会由大管家AMS来记录在案。<br>Activity，做门面的。<br>Service，做对外支持的。<br>BrocastReceiver，做门卫收信的。<br>ContentProvider，做仓库管理的。<br>做门面的，可以做对外支持的活，也可以做仓库管理的活。但是外面可不这么认为，它想找你要数据，只会找ContentProvier，找对外支持只会找Service。<br>另外AMS大管家有个不好的习惯，它为了节省公司的资源，AMS那里没有你这个apk任何部门运行记录的时候，它有可能把你的电关了（杀进程）。<br>而LZ你描述的问题呢，就是你的部门想下载东西，是由Activity子部门去干呢，还是Service去干。我的说法，都可以，但是，AMS那个不好的习惯，你没有任何Service运行，而Activity又退到后台了，那就会把你的进程杀了。</li>
+</ul>
+</li>
+<li><a href="http://blog.csdn.net/xiaanming/article/details/9750689" target="_blank" rel="external">Activity 和 service 如何通信</a><ul>
+<li><a href="http://www.cnblogs.com/ruiati/archive/2013/10/20/3379380.html" target="_blank" rel="external">集成Binder类</a>  －&gt; 要求在同一个进程中，并且可以通过回调的方式，让service主动通知activity变化</li>
+<li><a href="http://my.oschina.net/u/262208/blog/378249" target="_blank" rel="external">使用Messenger</a></li>
+<li>使用AIDL</li>
+<li>通过广播：当service发生变化时，发送一条广播，然后由注册该广播的Activity接收</li>
+<li>EventBus</li>
+</ul>
+</li>
+<li><p>多进程</p>
+<ul>
+<li><a href="http://blog.csdn.net/toyuexinshangwan/article/details/8640709" target="_blank" rel="external">Android跨进程通信的四种方式</a> <ul>
+<li>访问其它应用的Activity</li>
+<li>ContentProvider</li>
+<li>广播</li>
+<li>AIDL服务</li>
+</ul>
+</li>
+<li><a href="http://www.cnblogs.com/shaweng/p/4016296.html" target="_blank" rel="external">如何实现多进程</a>  <ul>
+<li>在AndroidManifest中修改Activity，Broadcast，service的process属性</li>
+<li>需要注意进程间内存的不可见性</li>
+</ul>
+</li>
+<li>为什么要使用多进程？<ul>
+<li>android平台对应用都有内存限制，其实这个理解有点问题，应该是说android平台对每个进程有内存限制，比如某机型对对进程限制是24m，如果应用有两个进程，则该应该的总内存限制是2*24m。使用多进程就可以使得我们一个apk所使用的内存限制加大几倍。<br>所以可以借此图片平台对应用的内存限制，比如一些要对图片、视频、大文件进程处理的好内存的应用可以考虑用多进程来解决应用操作不流畅问题。</li>
+</ul>
+</li>
+<li>[多进程需要注意什么}(<a href="http://www.tuicool.com/articles/a2yIRf3" target="_blank" rel="external">http://www.tuicool.com/articles/a2yIRf3</a>)</li>
+<li><a href="http://blog.csdn.net/baodinglaolang/article/details/9903499" target="_blank" rel="external">多进程内存创建顺序</a></li>
+</ul>
+</li>
+<li><p>不用xUtils直接用httpclient写网络请求</p>
+<ul>
+<li><a href="http://blog.csdn.net/windren06/article/details/7912454" target="_blank" rel="external">直接写网络请求</a></li>
+<li><a href="http://blog.csdn.net/cjj198561/article/details/40475771" target="_blank" rel="external">xUtils的HttpUtils异步请求源码分析</a></li>
+</ul>
+</li>
+<li><p>线程中下载，如何获取下载的东西，thread返回的是VOID</p>
+<ul>
+<li>一般下载写在Service中，可以通过回调获得下载的result</li>
+<li>定义全局的变量保存result </li>
+<li>handler</li>
+</ul>
+</li>
+<li><p><a href="http://blog.csdn.net/a907763895/article/details/12251561" target="_blank" rel="external">ANDROID动画</a></p>
+<ul>
+<li><a href="http://www.360doc.com/content/13/0102/22/6541311_257754535.shtml" target="_blank" rel="external">Animation</a>,3.0以前只有Tween和Frame两种<ul>
+<li>Tween动画(补间动画)，这种实现方式可以使视图组件移动、放大、缩小以及产生透明度的变化;</li>
+<li>Frame动画(逐帧动画)，传统的动画方法，通过顺序的播放排列好的图片来实现，类似电影。</li>
+</ul>
+</li>
+<li><a href="http://blog.csdn.net/jiabailong/article/details/14168707" target="_blank" rel="external">Animator</a></li>
+<li><a href="http://gqdy365.iteye.com/blog/2194297" target="_blank" rel="external">AnimationSet和AnimatorSet的区别</a>  </li>
+</ul>
+</li>
+<li><p>手动解析json ， gson ， fastjson谁写的</p>
+<ul>
+<li>JSONObject</li>
+</ul>
+</li>
+<li><p>点击事件传递</p>
+<ul>
+<li>当ViewGroupA中有个ViewGroupB，ViewGroupB中有个ViewC时，默认情况下，事件传递为：dispatchTouchEventA-&gt;onInterceptTouchEventA-&gt;dispatchTouchEventB-&gt;onInterceptTouchEventB-&gt;dispatchTouchEventC-&gt;onTouchEventC-&gt;onTouchEventB-&gt;onTouchEventA</li>
+<li>事件传递的时候，先执行dispatchTouchEvent再执行onInterceptTouchEvent方法</li>
+</ul>
+</li>
+<li><p><a href="http://www.cnblogs.com/lwbqqyumidi/p/3771542.html" target="_blank" rel="external">activity启动模式，特征，区别，使用场景</a></p>
+<ul>
+<li>当应用运行起来后就会开启一条线程，线程中会运行一个任务栈，当Activity实例创建后就会放入任务栈中。Activity启动模式的设置在AndroidManifest.xml文件中，通过配置Activity的属性android:launchMode=””设置。</li>
+</ul>
+<ol>
+<li><p>Standared模式（默认）<br>我们平时直接创建的Activity都是这种模式的Activity，这种模式的Activity的特点是：只要你创建了Activity实例，一旦激活该Activity，则会向任务栈中加入新创建的实例，退出Activity则会在任务栈中销毁该实例。</p>
+</li>
+<li><p>SingleTop模式<br>这种模式会考虑当前要激活的Activity实例在任务栈中是否正处于栈顶，如果处于栈顶则无需重新创建新的实例，会重用已存在的实例，否则会在任务栈中创建新的实例。</p>
+</li>
+<li><p>SingleTask模式<br>如果任务栈中存在该模式的Activity实例，则把栈中该实例以上的Activity实例全部移除，调用该实例的newInstance()方法重用该Activity，使该实例处於栈顶位置，否则就重新创建一个新的Activity实例。</p>
+</li>
+<li><p>SingleInstance模式<br>当该模式Activity实例在任务栈中创建后，只要该实例还在任务栈中，即只要激活的是该类型的Activity，都会通过调用实例的newInstance()方法重用该Activity，此时使用的都是同一个Activity实例，它都会处于任务栈的栈顶。此模式一般用于加载较慢的，比较耗性能且不需要每次都重新创建的Activity。 </p>
+</li>
+</ol>
+</li>
+<li><p>先加载本地再加载网络消息，没有网的时候又该怎样，怎么设计</p>
+</li>
+<li><p><a href="http://www.2cto.com/kf/201305/209856.html" target="_blank" rel="external">广播，有哪几种，区别</a></p>
+</li>
+<li><p>Activity生命周期</p>
+<ul>
+<li>onCreat</li>
+<li>onStart</li>
+<li>onResume</li>
+<li>onPause<ul>
+<li>Paused:当Activity失去焦点，被一个新的非全屏的Activity或者一个透明的Activity放置在栈顶时。该Activity失去了与用户交互的能力，但是它的所有状态信息，成员变量依旧保持着，只有当系统内存极低的情况下会被回收。</li>
+</ul>
+</li>
+<li>onStop<ul>
+<li>Stopped：当Activity被另一个Activity完全覆盖时，此时它不再可见，但依然保持了所有状态信息和成员变量。</li>
+</ul>
+</li>
+<li>onDestroy</li>
+<li>开发者可以控制Activity何时生，却无法控制何时死</li>
+</ul>
+</li>
+<li><p>源码有没有看过</p>
+</li>
+<li><p>四大组件</p>
+<ul>
+<li>activiyt</li>
+<li>broadcaserecever</li>
+<li>service</li>
+<li>intent </li>
+</ul>
+</li>
+<li><p><a href="http://www.cnblogs.com/newcj/archive/2011/05/30/2061370.html" target="_blank" rel="external">service启动模式，区别</a></p>
+<ul>
+<li>startService</li>
+<li>bindService</li>
+</ul>
+</li>
+<li><p>service分几种，本地服务和远程服务</p>
+</li>
+<li><p>一个列表  有些图片文字的数据  需要本地缓存   问我会怎么做    </p>
+<ul>
+<li>我就把咱的联网机制 本地缓存机制  数据库机制都说了一下</li>
+</ul>
+</li>
+<li><p><a href="http://blog.csdn.net/stonecao/article/details/6425019" target="_blank" rel="external">AIDL</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="清青 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/08/Afinal/" rel="next" title="Afinal">
+                <i class="fa fa-chevron-left"></i> Afinal
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/14/HandlerThread使用/" rel="prev" title="HandlerThread使用">
+                HandlerThread使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/10/面试问答/"
+           data-title="面试问答" data-url="http://yoursite.com/2016/04/10/面试问答/">
+      </div>
+    
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTUyNC82MDky"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/auth_head.png"
+               alt="清青" />
+          <p class="site-author-name" itemprop="name">清青</p>
+           
+              <p class="site-description motion-element" itemprop="description">浅显难羁宝剑锋，玉藏石中也玲珑</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/objectBoy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zifeng1203s" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-code"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/resumeSquare/index.html" target="_blank" title="RESUME">
+                  
+                    <i class="fa fa-fw fa-file-word-o"></i>
+                  
+                  RESUME
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">清青</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"objectBoy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
