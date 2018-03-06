@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/14/HandlerThread使用/index.html">
 <meta property="og:site_name" content="清青的驿站">
 <meta property="og:description" content="这片文章简要介绍了handlerthread的使用方法和为什么使用handlerthread">
-<meta property="og:updated_time" content="2016-04-14T08:06:23.000Z">
+<meta property="og:updated_time" content="2018-02-26T09:19:30.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HandlerThread使用">
 <meta name="twitter:description" content="这片文章简要介绍了handlerthread的使用方法和为什么使用handlerthread">
@@ -352,13 +352,11 @@
 </ol>
 <h2 id="HandlerLooper"><a href="#HandlerLooper" class="headerlink" title="HandlerLooper"></a>HandlerLooper</h2><ol>
 <li><p>实例化HandlerThread：创建一个包含Looper的线程</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HandlerThread ht = <span class="keyword">new</span> HandlerThread(<span class="string">"test.com"</span>);</span><br><span class="line">handlerThread.start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HandlerThread ht = <span class="keyword">new</span> HandlerThread(<span class="string">"test.com"</span>);</span><br><span class="line">handlerThread.start();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>获取HandlerThread的Looper</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Looper looper = ht.getLooper();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Looper looper = ht.getLooper();</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol>
 <li><p>通过Looper创建Handler</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Handler handler = <span class="keyword">new</span> Handler(looper);</span><br></pre></td></tr></table></figure>
 </li>
@@ -526,7 +524,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -643,7 +641,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

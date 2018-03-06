@@ -1,0 +1,953 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="自学PHP.7第一篇，php7都新增了那些内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP7新增">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/PHP7新增/index.html">
+<meta property="og:site_name" content="清青的驿站">
+<meta property="og:description" content="自学PHP.7第一篇，php7都新增了那些内容">
+<meta property="og:updated_time" content="2017-09-28T11:15:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP7新增">
+<meta name="twitter:description" content="自学PHP.7第一篇，php7都新增了那些内容">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/28/PHP7新增/"/>
+
+
+
+
+
+  <title> PHP7新增 | 清青的驿站 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8adc3c6f6b53214e4c4fbe5395529ac2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清青的驿站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/PHP7新增/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="清青">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/auth_head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清青的驿站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP7新增
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T12:18:08+08:00">
+                2017年09月28日
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/28/PHP7新增/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/28/PHP7新增/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="PHP-7第一篇"><a href="#PHP-7第一篇" class="headerlink" title="PHP.7第一篇"></a>PHP.7第一篇</h1><h2 id="查看PHP安装信息"><a href="#查看PHP安装信息" class="headerlink" title="查看PHP安装信息"></a>查看PHP安装信息</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*phpinfo.php*/</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://localhost/phpinfo.php" target="_blank" rel="external">http://localhost/phpinfo.php</a> </p>
+<h1 id="PHP配置文件"><a href="#PHP配置文件" class="headerlink" title="PHP配置文件"></a>PHP配置文件</h1><p> php.ini 中的配置会影响到 PHP 的功能最终和最直接的方式</p>
+<h2 id="标量类型声明"><a href="#标量类型声明" class="headerlink" title="标量类型声明"></a>标量类型声明</h2><blockquote>
+<ul>
+<li>int</li>
+<li>float</li>
+<li>bool</li>
+<li>string</li>
+<li>interfaces</li>
+<li>array</li>
+<li>callable</li>
+</ul>
+<p>这些类型可以通过下述模式强制执行</p>
+</blockquote>
+<h3 id="强制方式（默认）"><a href="#强制方式（默认）" class="headerlink" title="强制方式（默认）"></a>强制方式（默认）</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">// Coercive mode</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(int ...$ints)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> array_sum($ints);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">print</span>(sum(<span class="number">2</span>, <span class="string">'3'</span>, <span class="number">4.1</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 9</p>
+<h3 id="严格方式"><a href="#严格方式" class="headerlink" title="严格方式"></a>严格方式</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">// Strict mode</span></span><br><span class="line">   <span class="keyword">declare</span>(strict_types=<span class="number">1</span>);</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(int ...$ints)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> array_sum($ints);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">print</span>(sum(<span class="number">2</span>, <span class="string">'3'</span>, <span class="number">4.1</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; Fatal error: Uncaught TypeError: Argument 2 passed to sum() must be of the type integer, string given, …</p>
+<h2 id="返回类型声明"><a href="#返回类型声明" class="headerlink" title="返回类型声明"></a>返回类型声明</h2><blockquote>
+<ul>
+<li>int</li>
+<li>float</li>
+<li>bool</li>
+<li>string</li>
+<li>interfaces</li>
+<li>array</li>
+<li>callable</li>
+</ul>
+<p>这些类型可以作为返回值类型声明</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">declare</span>(strict_types = <span class="number">1</span>);</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">returnIntValue</span><span class="params">(int $value)</span>: <span class="title">int</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> $value;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">print</span>(returnIntValue(<span class="number">5</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 5</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">declare</span>(strict_types = <span class="number">1</span>);</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">returnIntValue</span><span class="params">(int $value)</span>: <span class="title">int</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> $value + <span class="number">1.0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">print</span>(returnIntValue(<span class="number">5</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; Fatal error: Uncaught TypeError: Return value of returnIntValue() must be of the type integer, float returned…</p>
+<h2 id="Null合并运算符"><a href="#Null合并运算符" class="headerlink" title="Null合并运算符"></a>Null合并运算符</h2><blockquote>
+<p>空合并运算符(??)已被引入。它被用来代替三元运算并与 isset()函数功能结合一起使用。如果它存在并且它不是空的，空合并运算符返回它的第一个操作数;否则返回第二个操作数</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">// fetch the value of $_GET['user'] and returns 'not passed'</span></span><br><span class="line">   <span class="comment">// if username is not passed</span></span><br><span class="line">   $username = $_GET[<span class="string">'username'</span>] ?? <span class="string">'not passed'</span>;</span><br><span class="line">   <span class="keyword">print</span>($username);</span><br><span class="line">   <span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Equivalent code using ternary operator</span></span><br><span class="line">   $username = <span class="keyword">isset</span>($_GET[<span class="string">'username'</span>]) ? $_GET[<span class="string">'username'</span>] : <span class="string">'not passed'</span>;</span><br><span class="line">   <span class="keyword">print</span>($username);</span><br><span class="line">   <span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="comment">// Chaining ?? operation</span></span><br><span class="line">   $username = $_GET[<span class="string">'username'</span>] ?? $_POST[<span class="string">'username'</span>] ?? <span class="string">'not passed'</span>;</span><br><span class="line">   <span class="keyword">print</span>($username);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; not passed</p>
+<p>==&gt; not passed</p>
+<p>==&gt; not passed</p>
+<h2 id="飞船操作符"><a href="#飞船操作符" class="headerlink" title="飞船操作符"></a>飞船操作符</h2><blockquote>
+<p>它是用于比较两个表达式。当第一个表达式比第二个表达式分别小于，等于或大于它返回-1，0或1。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//integer comparison</span></span><br><span class="line">   <span class="keyword">print</span>( <span class="number">1</span> &lt;=&gt; <span class="number">1</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>( <span class="number">1</span> &lt;=&gt; <span class="number">2</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>( <span class="number">2</span> &lt;=&gt; <span class="number">1</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="comment">//float comparison</span></span><br><span class="line">   <span class="keyword">print</span>( <span class="number">1.5</span> &lt;=&gt; <span class="number">1.5</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>( <span class="number">1.5</span> &lt;=&gt; <span class="number">2.5</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>( <span class="number">2.5</span> &lt;=&gt; <span class="number">1.5</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="comment">//string comparison</span></span><br><span class="line">   <span class="keyword">print</span>( <span class="string">"a"</span> &lt;=&gt; <span class="string">"a"</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>( <span class="string">"a"</span> &lt;=&gt; <span class="string">"b"</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">   <span class="keyword">print</span>( <span class="string">"b"</span> &lt;=&gt; <span class="string">"a"</span>);<span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt;</p>
+<p>​    0<br>​    -1<br>​    1</p>
+<p>​    0<br>​    -1<br>​    1</p>
+<p>​    0<br>​    -1<br>​    1</p>
+<p>&lt;==</p>
+<h2 id="常亮数组"><a href="#常亮数组" class="headerlink" title="常亮数组"></a>常亮数组</h2><blockquote>
+<p>使用 define() 函数定义。 在PHP5.6，它们只能使用 const 关键字定义</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//define a array using define function</span></span><br><span class="line">   define(<span class="string">'animals'</span>, [</span><br><span class="line">      <span class="string">'dog'</span>,</span><br><span class="line">      <span class="string">'cat'</span>,</span><br><span class="line">      <span class="string">'bird'</span></span><br><span class="line">   ]);</span><br><span class="line">   <span class="keyword">print</span>(animals[<span class="number">1</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; cat</p>
+<h2 id="匿名类-new-class"><a href="#匿名类-new-class" class="headerlink" title="匿名类 new class"></a>匿名类 new class</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="class"><span class="keyword">interface</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(string $msg)</span></span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> $logger;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLogger</span><span class="params">()</span>: <span class="title">Logger</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> $this-&gt;logger;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setLogger</span><span class="params">(Logger $logger)</span> </span>&#123;</span><br><span class="line">         $this-&gt;logger = $logger;</span><br><span class="line">      &#125;  </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   $app = <span class="keyword">new</span> Application;</span><br><span class="line">   $app-&gt;setLogger(<span class="keyword">new</span> <span class="class"><span class="keyword">class</span> <span class="keyword">implements</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(string $msg)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">print</span>($msg);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   $app-&gt;getLogger()-&gt;log(<span class="string">"My first Log Message"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; My first Log Message</p>
+<h2 id="Closure-call"><a href="#Closure-call" class="headerlink" title="Closure::call()"></a>Closure::call()</h2><blockquote>
+<p>Closure::call() 方法被添加作为临时绑定的对象范围，以封闭并简便调用它的方法。它的性能相比PHP5.6 bindTo要快得多。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bindTo</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> $x = <span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Define a closure Pre PHP 7 code</span></span><br><span class="line">   $getValue = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> $this-&gt;x;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Bind a clousure</span></span><br><span class="line">   $value = $getValue-&gt;bindTo(<span class="keyword">new</span> A, <span class="string">'A'</span>); </span><br><span class="line"></span><br><span class="line">   <span class="keyword">print</span>($value());</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 1</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Closure:call()</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> $x = <span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// PHP 7+ code, Define</span></span><br><span class="line">   $value = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> $this-&gt;x;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">print</span>($value-&gt;call(<span class="keyword">new</span> A));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 1</p>
+<h2 id="过滤unserialize"><a href="#过滤unserialize" class="headerlink" title="过滤unserialize()"></a>过滤unserialize()</h2><blockquote>
+<p>unserialize()函数以在反序列化不受信任的数据对象时提供更好的安全性。它可以防止可能的代码注入，使开发人员能够使用序列化白名单类。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass1</span> </span>&#123; </span><br><span class="line">   <span class="keyword">public</span> $obj1prop;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass2</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> $obj2prop;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$obj1 = <span class="keyword">new</span> MyClass1();</span><br><span class="line">$obj1-&gt;obj1prop = <span class="number">1</span>;</span><br><span class="line">$obj2 = <span class="keyword">new</span> MyClass2();</span><br><span class="line">$obj2-&gt;obj2prop = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">$serializedObj1 = serialize($obj1);</span><br><span class="line">$serializedObj2 = serialize($obj2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// default behaviour that accepts all classes</span></span><br><span class="line"><span class="comment">// second argument can be ommited.</span></span><br><span class="line"><span class="comment">// if allowed_classes is passed as false, unserialize converts all objects into __PHP_Incomplete_Class object</span></span><br><span class="line">$data = unserialize($serializedObj1 , [<span class="string">"allowed_classes"</span> =&gt; <span class="keyword">true</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// converts all objects into __PHP_Incomplete_Class object except those of MyClass1 and MyClass2</span></span><br><span class="line">$data2 = unserialize($serializedObj2 , [<span class="string">"allowed_classes"</span> =&gt; [<span class="string">"MyClass1"</span>, <span class="string">"MyClass2"</span>]]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>($data-&gt;obj1prop);</span><br><span class="line"><span class="keyword">print</span>(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line"><span class="keyword">print</span>($data2-&gt;obj2prop);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 1</p>
+<p>==&gt; 2</p>
+<h2 id="国际字符-IntlChar"><a href="#国际字符-IntlChar" class="headerlink" title="国际字符 IntlChar"></a>国际字符 IntlChar</h2><blockquote>
+<p>新的 IntlChar 类添加其目的是公开更多的ICU功能。 这个类定义了许多可用于操纵Unicode字符的静态方法和常数。你需要在使用这个类之前安装 Intl 扩展。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">printf(<span class="string">'%x'</span>, IntlChar::CODEPOINT_MAX);</span><br><span class="line"><span class="keyword">print</span> (IntlChar::charName(<span class="string">'@'</span>));</span><br><span class="line"><span class="keyword">print</span>(IntlChar::ispunct(<span class="string">'!'</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 10ffff</p>
+<p>==&gt; COMMERCIAL AT</p>
+<p>==&gt; true</p>
+<h2 id="伪随机数产生器"><a href="#伪随机数产生器" class="headerlink" title="伪随机数产生器"></a>伪随机数产生器</h2><blockquote>
+<p>以下两个新的函数引入以产生一个跨平台的方式加密安全整数和字符串。</p>
+<ul>
+<li>random_bytes() - 生成加密安全伪随机字节。</li>
+<li>random_int() - 生成加密安全伪随机整数。</li>
+</ul>
+</blockquote>
+<h3 id="random-bytes"><a href="#random-bytes" class="headerlink" title="random_bytes()"></a>random_bytes()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$bytes = random_bytes(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">print</span>(bin2hex($bytes));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; 54cc305593</p>
+<p>####语法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string random_bytes ( int $length ) </span><br><span class="line"><span class="comment">// $length 返回随机串的字节长度  ==&gt; 返回包含加密安全随机字节的请求数量的字符串。</span></span><br></pre></td></tr></table></figure>
+<h3 id="random-int"><a href="#random-int" class="headerlink" title="random_int()"></a>random_int()</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">print(random_int(100, 999));</span><br><span class="line">print("</span><br><span class="line">");</span><br><span class="line">print(random_int(-1000, 0));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>==&gt; 614</p>
+<p>==&gt; -882</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int random_int ( int $min , int $max ) </span><br><span class="line"><span class="comment">// $min - 返回最小值，它必须是PHP_INT_MIN或更大的值</span></span><br><span class="line"><span class="comment">// $max - 返回最大值，它必须是小于或等于PHP_INT_MAX</span></span><br></pre></td></tr></table></figure>
+<h2 id="期望-assert（）"><a href="#期望-assert（）" class="headerlink" title="期望 assert（）"></a>期望 assert（）</h2><blockquote>
+<p>零成本生成断言</p>
+</blockquote>
+<h3 id="assert配置"><a href="#assert配置" class="headerlink" title="assert配置"></a>assert配置</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>默认值</th>
+<th>可能的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zend.assertions</td>
+<td>1</td>
+<td><strong>1</strong> - 生成并执行代码(开发模式)<strong>0</strong> - 生成代码，但它在运行时<strong>-1</strong> - 不生成代码(生产模式)</td>
+</tr>
+<tr>
+<td>assert.exception</td>
+<td>0</td>
+<td><strong>1</strong> - 当断言失败时抛出，要么抛出的异常，或者通过抛出一个新的 AssertionError 对象提供的对象，如果没有提供异常<strong>0</strong> - 使用或与上述生成的Throwable，但只能根据该对象的警告，而不是(与PHP 5兼容的行为)把它抛出</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">ini_set(<span class="string">'assert.exception'</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomError</span> <span class="keyword">extends</span> <span class="title">AssertionError</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">assert(<span class="keyword">false</span>, <span class="keyword">new</span> CustomError(<span class="string">'Custom Error Message!'</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; Fatal error: Uncaught CustomError: Custom Error Message! in…</p>
+<h2 id="use语句"><a href="#use语句" class="headerlink" title="use语句"></a>use语句</h2><blockquote>
+<p>单次使用 use 语句可以用来从同一个命名空间导入类，函数和常量(而不用多次使用 use 语句)。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// Before PHP 7</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">ClassA</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">ClassB</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">ClassC</span> <span class="title">as</span> <span class="title">C</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">function</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">fn_a</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">function</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">fn_b</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">function</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">fn_c</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">const</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">ConstA</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">const</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">ConstB</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">const</span> <span class="title">com</span>\<span class="title">yiibai</span>\<span class="title">ConstC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PHP 7+ code</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">com</span>\<span class="title">yiibai</span>\&#123;<span class="title">ClassA</span>, <span class="title">ClassB</span>, <span class="title">ClassC</span> <span class="title">as</span> <span class="title">C</span>&#125;;</span><br><span class="line"><span class="keyword">use</span> <span class="title">function</span> <span class="title">com</span>\<span class="title">yiibai</span>\&#123;<span class="title">fn_a</span>, <span class="title">fn_b</span>, <span class="title">fn_c</span>&#125;;</span><br><span class="line"><span class="keyword">use</span> <span class="title">const</span> <span class="title">com</span>\<span class="title">yiibai</span>\&#123;<span class="title">ConstA</span>, <span class="title">ConstB</span>, <span class="title">ConstC</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP错误处理"><a href="#PHP错误处理" class="headerlink" title="PHP错误处理"></a>PHP错误处理</h2><blockquote>
+<p>从PHP7，错误处理和报告已经改变。PHP5中使用了传统的错误报告机制的错误，现在大多数的错误将通过抛出异常错误处理。类似于异常，这些错误异常会冒泡，直到它们到达第一个匹配的catch块。如果没有匹配的块，那么会使用 set_exception_handler() 安装一个默认的异常处理并被调用，并在情况下，如果没有默认的异常处理程序，那么该异常将被转换为一个致命的错误，并会像传统错误那样处理。</p>
+<p>由于 Error 层次结构不是从异常(Exception)，代码扩展使用catch (Exception $e) { … } 块来处理未捕获的异常，PHP5中将不会处理这样的错误。  catch (Error $e) { … } 块或 set_exception_handler()处理程序需要处理的致命错误。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MathOperations</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="keyword">protected</span> $n = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Try to get the Division by Zero error object and display as Exception</span></span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doOperation</span><span class="params">()</span>: <span class="title">string</span></span><br><span class="line">   </span>&#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         $value = $this-&gt;n % <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">return</span> $value;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (DivisionByZeroError $e) &#123;</span><br><span class="line">         <span class="keyword">return</span> $e-&gt;getMessage();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$mathOperationsObj = <span class="keyword">new</span> MathOperations();</span><br><span class="line"><span class="keyword">print</span>($mathOperationsObj-&gt;doOperation());</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; Modulo by zero</p>
+<h2 id="整数除法-intdiv（）-gt-int"><a href="#整数除法-intdiv（）-gt-int" class="headerlink" title="整数除法 intdiv（）==&gt; int"></a>整数除法 intdiv（）==&gt; int</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$value = intdiv(10,3);</span><br><span class="line">var_dump($value);</span><br><span class="line">print("</span><br><span class="line">");</span><br><span class="line">print($value);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>==&gt; 3</p>
+<h2 id="Session选项"><a href="#Session选项" class="headerlink" title="Session选项"></a>Session选项</h2><blockquote>
+<p>从PHP7+，session_start()函数接受数组参数覆盖在php.ini中设置的会话配置指令。这些选项支持 session.lazy，在默认情况下如果PHP会话数据改变，那么会覆盖任何会话数据信息。</p>
+<p>添加另一种选择是：read_and_close，这表明会话数据应被读取，然后该会话应当立即被关闭不变。例如，session.cache_limiter 设置为私有，并设置标志使用下面的代码片段之后立即关闭会话。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">session_start([</span><br><span class="line">   <span class="string">'cache_limiter'</span> =&gt; <span class="string">'private'</span>,</span><br><span class="line">   <span class="string">'read_and_close'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="PHP7弃用的功能"><a href="#PHP7弃用的功能" class="headerlink" title="PHP7弃用的功能"></a>PHP7弃用的功能</h1><h2 id="PHP4风格的构造函数"><a href="#PHP4风格的构造函数" class="headerlink" title="PHP4风格的构造函数"></a>PHP4风格的构造函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">print</span>(<span class="string">'Style Constructor'</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; Deprecated: Methods with the same name as their class will not be constructors in a future version of PHP; A has a deprecated constructor in…</p>
+<h2 id="静态调用非静态方法"><a href="#静态调用非静态方法" class="headerlink" title="静态调用非静态方法"></a>静态调用非静态方法</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">b</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">print</span>(<span class="string">'Non-static call'</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">A::b();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==&gt; Deprecated: Non-static method A::b() should not be called statically in…Non-static call</p>
+<h2 id="password-hash-salt-选项"><a href="#password-hash-salt-选项" class="headerlink" title="password_hash() - salt 选项"></a>password_hash() - salt 选项</h2><p>password_hash()函数的salt选项已被弃用，使开发人员不会产生他们自己的(通常是不安全的)salt。函数本身生成一个加密的安全salt，在开发者没有提供salt值时 - 因此，定制 salt 生成不再需要了。</p>
+<h2 id="capture-session-meta-SSL上下文选项"><a href="#capture-session-meta-SSL上下文选项" class="headerlink" title="capture_session_meta SSL上下文选项"></a>capture_session_meta SSL上下文选项</h2><p>capture_session_meta SSL上下文选项已被弃用。 SSL元数据现在通过stream_get_meta_data()函数获取。</p>
+<h1 id="PHP7已删除的SAPI"><a href="#PHP7已删除的SAPI" class="headerlink" title="PHP7已删除的SAPI"></a>PHP7已删除的SAPI</h1><ul>
+<li>aolserver</li>
+<li>apache</li>
+<li>apache_hooks</li>
+<li>apache2filter</li>
+<li>caudium</li>
+<li>continuity</li>
+<li>isapi</li>
+<li>milter</li>
+<li>nsapi</li>
+<li>phttpd</li>
+<li>pi3web</li>
+<li>roxen</li>
+<li>thttpd</li>
+<li>tux</li>
+<li>webjames</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="清青 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/27/phpPgAdmin-PostgreSQL/" rel="next" title="phpPgAdmin - PostgreSQL">
+                <i class="fa fa-chevron-left"></i> phpPgAdmin - PostgreSQL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/26/kotlin初接触/" rel="prev" title="kotlin初接触">
+                kotlin初接触 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/09/28/PHP7新增/"
+           data-title="PHP7新增" data-url="http://yoursite.com/2017/09/28/PHP7新增/">
+      </div>
+    
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTUyNC82MDky"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/auth_head.png"
+               alt="清青" />
+          <p class="site-author-name" itemprop="name">清青</p>
+           
+              <p class="site-description motion-element" itemprop="description">浅显难羁宝剑锋，玉藏石中也玲珑</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/objectBoy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zifeng1203s" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-code"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/resumeSquare/index.html" target="_blank" title="RESUME">
+                  
+                    <i class="fa fa-fw fa-file-word-o"></i>
+                  
+                  RESUME
+                </a>
+              </span>
+            
+          
+        </div>
+        <div style="margin-top:3em;color:#F8F8FF;">
+          <p>--------  细思极恐  --------<br/>
+          你的对手在看书<br/>
+          你的仇人在磨刀<br/>
+          你的闺蜜在减肥<br/>
+          隔壁老王在练腰<br/>
+          我们必须不断学习,否则我们将被学习者超越</p>
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-7第一篇"><span class="nav-number">1.</span> <span class="nav-text">PHP.7第一篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看PHP安装信息"><span class="nav-number">1.1.</span> <span class="nav-text">查看PHP安装信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP配置文件"><span class="nav-number">2.</span> <span class="nav-text">PHP配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标量类型声明"><span class="nav-number">2.1.</span> <span class="nav-text">标量类型声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强制方式（默认）"><span class="nav-number">2.1.1.</span> <span class="nav-text">强制方式（默认）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格方式"><span class="nav-number">2.1.2.</span> <span class="nav-text">严格方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回类型声明"><span class="nav-number">2.2.</span> <span class="nav-text">返回类型声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Null合并运算符"><span class="nav-number">2.3.</span> <span class="nav-text">Null合并运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#飞船操作符"><span class="nav-number">2.4.</span> <span class="nav-text">飞船操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常亮数组"><span class="nav-number">2.5.</span> <span class="nav-text">常亮数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名类-new-class"><span class="nav-number">2.6.</span> <span class="nav-text">匿名类 new class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Closure-call"><span class="nav-number">2.7.</span> <span class="nav-text">Closure::call()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤unserialize"><span class="nav-number">2.8.</span> <span class="nav-text">过滤unserialize()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国际字符-IntlChar"><span class="nav-number">2.9.</span> <span class="nav-text">国际字符 IntlChar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪随机数产生器"><span class="nav-number">2.10.</span> <span class="nav-text">伪随机数产生器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#random-bytes"><span class="nav-number">2.10.1.</span> <span class="nav-text">random_bytes()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#random-int"><span class="nav-number">2.10.2.</span> <span class="nav-text">random_int()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">2.10.2.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期望-assert（）"><span class="nav-number">2.11.</span> <span class="nav-text">期望 assert（）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#assert配置"><span class="nav-number">2.11.1.</span> <span class="nav-text">assert配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use语句"><span class="nav-number">2.12.</span> <span class="nav-text">use语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP错误处理"><span class="nav-number">2.13.</span> <span class="nav-text">PHP错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数除法-intdiv（）-gt-int"><span class="nav-number">2.14.</span> <span class="nav-text">整数除法 intdiv（）==> int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session选项"><span class="nav-number">2.15.</span> <span class="nav-text">Session选项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP7弃用的功能"><span class="nav-number">3.</span> <span class="nav-text">PHP7弃用的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP4风格的构造函数"><span class="nav-number">3.1.</span> <span class="nav-text">PHP4风格的构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态调用非静态方法"><span class="nav-number">3.2.</span> <span class="nav-text">静态调用非静态方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#password-hash-salt-选项"><span class="nav-number">3.3.</span> <span class="nav-text">password_hash() - salt 选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#capture-session-meta-SSL上下文选项"><span class="nav-number">3.4.</span> <span class="nav-text">capture_session_meta SSL上下文选项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP7已删除的SAPI"><span class="nav-number">4.</span> <span class="nav-text">PHP7已删除的SAPI</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">清青</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"objectBoy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
